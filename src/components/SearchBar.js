@@ -1,4 +1,3 @@
-import { Button } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
@@ -6,6 +5,7 @@ function SearchBar() {
   return (
     <>
       <input></input>
+
       <button onClick={() => navigate("results")}>Search</button>
     </>
   );
