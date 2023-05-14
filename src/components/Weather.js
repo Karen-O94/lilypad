@@ -16,7 +16,6 @@ function Weather () {
         
         const response = await fetch(queryURL);
         var data = await response.json();
-        console.log(data);
         longitude = data.coord.lon;
         latitude = data.coord.lat;
         getWeatherInfo();
@@ -32,6 +31,9 @@ function Weather () {
         document.querySelector("#city").innerHTML = city.toUpperCase(); 
         document.querySelector("#temp").innerHTML = fromKelvinToCelsius(data.current.temp) + "°C"
         document.querySelector("#humidity").innerHTML = data.current.humidity + "%"
+
+        var iconCode = data.current.weather[0].icon
+        displayWeatherIcon(iconCode)
     
     }
 
@@ -39,6 +41,15 @@ function Weather () {
     function fromKelvinToCelsius(kelvin) {
         return Math.round((kelvin - 273.15) * 10) / 10;
     };
+
+    //This function is called to display weather icons
+    function displayWeatherIcon(iconCode) {
+        var iconURL = `http://openweathermap.org/img/w/${iconCode}.png`;
+        var dayIcon = document.querySelector('#weather-icon');
+        var img = document.createElement("img");
+        img.src = iconURL;
+        dayIcon.appendChild(img);
+    }
 
     return (
         <div className="container-fluid">
@@ -50,7 +61,7 @@ function Weather () {
 
 
             <div className="card">
-                {/* <img  alt="Avatar" /> */}
+                <p id="weather-icon" alt="Displaying Weather icons" style={{margin: 10}}/>
                 <div className="container">
                     <h6 id="city"><b>City: </b></h6>
                     <p id="temp">Temp: </p>
