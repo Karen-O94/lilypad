@@ -30,10 +30,15 @@ function Weather () {
         var data = await response.json();
         console.log(data)
         document.querySelector("#city").innerHTML = city.toUpperCase(); 
-        document.querySelector("#temp").innerHTML = Math.Round(data.current.temp) + "°C"
+        document.querySelector("#temp").innerHTML = fromKelvinToCelsius(data.current.temp) + "°C"
         document.querySelector("#humidity").innerHTML = data.current.humidity + "%"
     
     }
+
+    //Converts temperature from Kelvin to Celsius
+    function fromKelvinToCelsius(kelvin) {
+        return Math.round((kelvin - 273.15) * 10) / 10;
+    };
 
     return (
         <div class="container-fluid">
