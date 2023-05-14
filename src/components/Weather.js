@@ -4,26 +4,35 @@ function Weather () {
     var latitude = "";
     var longitude = "";
 
-    //const cityBtn = document.getElementById("city-btn"); 
-
     function handleCitySubmit(event) {
         event.preventDefault();
         getCityLongLat();
     };
 
-    //cityBtn.addEventListener("click", getCityLongLat);
-
     //Gets longitude and latitude co-ordinates from city input
     async function getCityLongLat() {
-        //event.preventDefault()
         city = document.getElementById("main-search").value
         var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
         
         const response = await fetch(queryURL);
         var data = await response.json();
         console.log(data);
-        longitude = data.coord.lon
-        latitude = data.coord.lat
+        longitude = data.coord.lon;
+        latitude = data.coord.lat;
+        getWeatherInfo();
+    }
+
+    //Function to retrieve weather info using city coordinates from getCityLongLat function
+    async function getWeatherInfo () {
+        var queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=${apiKey}`
+    
+        const response = await fetch(queryURL)
+        var data = await response.json();
+        console.log(data)
+        document.querySelector("#city").innerHTML = city.toUpperCase(); 
+        document.querySelector("#temp").innerHTML = Math.Round(data.current.temp) + "°C"
+        document.querySelector("#humidity").innerHTML = data.current.humidity + "%"
+    
     }
 
     return (
