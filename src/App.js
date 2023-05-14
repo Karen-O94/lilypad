@@ -1,13 +1,14 @@
 import "./App.css";
-import SearchBar from "./components/SearchBar";
-import TitleBanner from "./components/TitleBanner";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Results from "./components/Results";
 
 function App() {
   return (
-    <div className="App">
-      <TitleBanner />
-      <SearchBar />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="results" element={<Results />} />
+    </Routes>
   );
 }
 
