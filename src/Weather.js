@@ -4,6 +4,22 @@ function Weather () {
     var latitude = "";
     var longitude = "";
 
+    const cityBtn = document.getElementById("city-btn"); 
+
+    cityBtn.addEventListener("click", getCityLongLat);
+
+    async function getCityLongLat(event) {
+        event.preventDefault()
+        city = document.getElementById("main-search").value
+        var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+        
+        const response = await fetch(queryURL);
+        var data = await response.json();
+        console.log(data);
+        longitude = data.coord.lon
+        latitude = data.coord.lat
+    }
+
     return (
         <div class="container-fluid">
             <form className="d-flex" id="search-form" role="search">
