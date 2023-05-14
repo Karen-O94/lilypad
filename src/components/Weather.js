@@ -41,7 +41,7 @@ function Weather () {
     };
 
     return (
-        <div class="container-fluid">
+        <div className="container-fluid">
             <form className="d-flex" id="search-form" role="search">
             <input className="form-control me-2" id="main-search" type="search" placeholder="What city would you like to visit?" aria-label="Search"/>
             <button className="btn btn-outline-success" onClick={handleCitySubmit} id="city-btn" type="submit">Search</button>
@@ -49,7 +49,7 @@ function Weather () {
 
 
 
-            <div class="card">
+            <div className="card">
                 {/* <img  alt="Avatar" /> */}
                 <div className="container">
                     <h6 id="city"><b>City: </b></h6>
