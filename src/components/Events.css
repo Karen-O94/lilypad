@@ -1,0 +1,51 @@
+.Events {
+  border-radius: 25px;
+  background-color: #f8f4fb;
+  display: flex;
+  flex-direction: column;
+}
+
+.Events-Header {
+  margin-left: 30px;
+}
+
+.Events-Body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.Event1 {
+  background-color: white;
+  border-radius: 25px;
+  border: 40px;
+  padding: 30px;
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.Event2 {
+  background-color: white;
+  border-radius: 25px;
+  border: 40px;
+  padding: 30px;
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.Event3 {
+  background-color: white;
+  border-radius: 25px;
+  border: 40px;
+  padding: 30px;
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+event-image {
+  border-radius: 25px;
+}

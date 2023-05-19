@@ -5,7 +5,7 @@ import Weather from "../components/Weather";
 import News from "../components/News";
 import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
-
+import Translate from "../components/Translate";
 function Results() {
   return (
     <div className="page-container">
@@ -40,6 +40,9 @@ function Results() {
             <Events />
           </div>
         </div>
+      </div>
+      <div className="body_lower">
+        <Translate />
       </div>
     </div>
   );

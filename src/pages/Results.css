@@ -45,9 +45,7 @@
 }
 
 .body_right {
-  border-style: solid;
   background-color: #f8f4fb;
-  border-color: yellow;
   border-radius: 25px;
   width: 100%;
 }
@@ -69,13 +67,9 @@
 }
 
 .news {
-  border-style: solid;
-  border-color: orange;
   border-radius: 25px;
 }
 
 .events {
-  border-style: solid;
-  border-color: blue;
   border-radius: 25px;
 }
