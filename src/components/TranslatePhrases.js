@@ -34,7 +34,7 @@ function TranslatePhrases() {
     arr1.forEach((arr1val, i) => {
         newArr.push([arr1val, arr2[i]])
     }) 
-    
+
         
     return (
         <div className="phrase-div">
@@ -42,8 +42,8 @@ function TranslatePhrases() {
             <table className="phrase-table">
                 <thead>
                     <tr>
-                        <th>English</th>
-                        <th>German</th>
+                        <th>{fromLang}</th>
+                        <th>{toLang}</th>
                     </tr>
                 </thead>
                 <tbody>
