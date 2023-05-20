@@ -1,13 +1,16 @@
+import { useState } from "react";
+
 function Translate() {
     let fromLang = 'en';
     let toLang = 'de';
-    translateRequest();
+
+    const [phrase, setPhrase] = useState("Enter your text to translate")
+    const [translatedText, setTranslatedText] = useState("Your translation will appear here")
 
 
-    // Gets translated phrases based on user input
-    async function translateRequest(){
-        let transText = document.getElementById('text_to_translate').value;
-        let queryText = encodeURIComponent(transText);
+    // Gets translated phrase based on user input
+    const translateRequest = async (phraseToTranslate) => {
+        let queryText = encodeURIComponent(phraseToTranslate);
         let queryURL = `http://localhost:5000/translate?source=${fromLang}&target=${toLang}&q=${queryText}`;
 
         console.log(queryURL)
@@ -19,16 +22,17 @@ function Translate() {
         let translatedContent = data.translatedText;
 
         console.log(translatedContent);
-        document.getElementById('translated_text').value = translatedContent;
-        return false;
+        return translatedContent;
         
     }
 
     return (
         <div>
-            <p><input id="text_to_translate" type="text" placeholder="Enter your text to translate" size={30} autoFocus></input></p>
-            <button id="submit_button" onClick={translateRequest}>Translate!</button>
-            <p><input id="translated_text" type="text" placeholder="Your translation will appear here" size={30}></input></p>
+            <h1>Translate your own phrases here!</h1>
+            <p><input id="text_to_translate" type="text" onChange={ (e) => setPhrase(e.currentTarget.value) } placeholder="Enter your text to translate" size={30} autoFocus></input></p>
+            <button id="submit_button" onClick={ () => translateRequest(phrase).then((text) => setTranslatedText(text)) }>Translate!</button>
+            <br></br>
+            <p id="translated_text" type="text"  size={30}> {translatedText} </p>
         </div>
     );
 
