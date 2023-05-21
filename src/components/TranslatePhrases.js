@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import phraseFixture from './phrases.json'
 
-function TranslatePhrases() {
+function TranslatePhrases({dataProvider}) {
     let fromLang = "en";
-    let toLang = "de";
+    let toLang = dataProvider.getLanguage();
 
     const phraseList = phraseFixture.phrases
     const [translatedText, setTranslatedText] = useState("Your translation will appear here")

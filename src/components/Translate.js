@@ -1,13 +1,16 @@
 import { useState } from "react";
 
-function Translate() {
+function Translate({dataProvider}) {
     let fromLang = 'en';
-    let toLang = 'de';
+    let toLang = dataProvider.getLanguage();
 
     const [phrase, setPhrase] = useState("Enter your text to translate")
     const [translatedText, setTranslatedText] = useState("Your translation will appear here")
+    
+    // dataProvider.getCurrency()
+    // dataProvider.getCurrencyAndLanguage()
 
-
+    
     // Gets translated phrase based on user input
     const translateRequest = async (phraseToTranslate) => {
         let queryText = encodeURIComponent(phraseToTranslate);
