@@ -9,6 +9,8 @@ function Translation({dataProvider}) {
     
     // dataProvider.getCurrency()
     // dataProvider.getCurrencyAndLanguage()
+    dataProvider.getLongtitude()
+    dataProvider.getLatitude()
 
     
     // Gets translated phrase based on user input

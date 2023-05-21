@@ -26,9 +26,6 @@ function Translate() {
           noValidate
           autoComplete="off"
         >
-          <DataProvider>
-            <Translation/>
-          </DataProvider>
           <TextField
             id="outlined-basic"
             label="What do you want to say?"
@@ -36,6 +33,9 @@ function Translate() {
           />
         </Box>
         <Button variant="contained">Translate</Button>
+        <DataProvider>
+            <Translation/>
+          </DataProvider>
       </div>
     </div>
   );
