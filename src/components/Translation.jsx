@@ -6,11 +6,13 @@ function Translation({dataProvider}) {
 
     const [phrase, setPhrase] = useState("Enter your text to translate")
     const [translatedText, setTranslatedText] = useState("Your translation will appear here")
+
     
     // dataProvider.getCurrency()
     // dataProvider.getCurrencyAndLanguage()
-    dataProvider.getLongtitude()
-    dataProvider.getLatitude()
+    // dataProvider.getLongtitude()
+    // dataProvider.getLatitude()
+    // dataProvider.getCountry()
 
     
     // Gets translated phrase based on user input

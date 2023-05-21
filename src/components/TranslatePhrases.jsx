@@ -3,7 +3,7 @@ import phraseFixture from './phrases.json'
 
 function TranslatePhrases({dataProvider}) {
     let fromLang = "en";
-    let toLang = dataProvider.getLanguage();
+    let toLang = "fr";
 
     const phraseList = phraseFixture.phrases
     const [translatedText, setTranslatedText] = useState("Your translation will appear here")
