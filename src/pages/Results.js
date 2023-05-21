@@ -6,9 +6,6 @@ import News from "../components/News";
 import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
 import Translate from "../components/Translate";
-import Translation from "../components/Translation";
-import DataProvider from "../components/DataProvider";
-import TranslatePhrases from "../components/TranslatePhrases";
 
 function Results() {
   return (
@@ -43,12 +40,8 @@ function Results() {
           </div>
         </div>
         <div className="body-lower">
-        <DataProvider>
           {/* note classname body-lower not currently in use in results.css  */}
           <Translate />
-          <Translation />
-          <TranslatePhrases/>
-        </DataProvider>
         </div>
     </div>
   );

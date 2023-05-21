@@ -3,17 +3,17 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-// import Translation from "./Translation";
+import TranslatePhrases from "./TranslatePhrases";
+import Translation from "./Translation";
+import DataProvider from "./DataProvider";
 
 function Translate() {
   return (
     <div className="translate-container">
       <div className="translate-phrases">
-        <h3>KEY PHRASES:</h3>
-        <p> 👋 Hello: Hello</p>
-        <p> 🙌 Thank you: Thank you</p>
-        <p> 🙏 Please: Please </p>
-        <p> 🍻 I would like a beer! : I would like a beer!</p>
+        <DataProvider>
+          <TranslatePhrases/>
+        </DataProvider>
       </div>
       <div className="translate-input">
         <h3>TRANSLATE</h3>
@@ -26,6 +26,9 @@ function Translate() {
           noValidate
           autoComplete="off"
         >
+          <DataProvider>
+            <Translation/>
+          </DataProvider>
           <TextField
             id="outlined-basic"
             label="What do you want to say?"
@@ -33,7 +36,6 @@ function Translate() {
           />
         </Box>
         <Button variant="contained">Translate</Button>
-        {/* <Translation /> */}
       </div>
     </div>
   );
