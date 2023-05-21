@@ -11,8 +11,9 @@ function App() {
       <DataProvider>
         <TranslatePhrases />
         <Translate />
+        {/* <TranslationDropdown /> */}
       </DataProvider>
-      {/* <TranslationDropdown /> */}
+      
     </div>
   );
 }

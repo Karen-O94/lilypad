@@ -4,17 +4,22 @@ const DataProvider = ({children}) => {
 
 
     const language = () => {
-        console.log("I am language hello")
-        let language = "fr"
+        let language = "pt"
         return language
     }
 
     const country = () => {
         console.log("I am country bounjour")
+        
+
     }
 
     const currency = () => {
         console.log("I am currency ching ching bling bling")
+    }
+
+    const flag = () => {
+        console.log("I am flag and I swish in the wind")
     }
 
     const currencyandlanguage = () => {
@@ -26,7 +31,8 @@ const DataProvider = ({children}) => {
         getLanguage: language,
         getCountry: country,
         getCurrency: currency,
-        getCurrencyAndLanguage: currencyandlanguage
+        getCurrencyAndLanguage: currencyandlanguage,
+        getFlag: flag
     }
 
     return (
