@@ -1,15 +1,15 @@
-.weather_component {
+.weather-component {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 20px;
 }
 
-.weather_icon {
+.weather-icon {
   width: 70px;
   margin: 10px;
 }
 
-.weather_info {
+.weather-info {
   font-size: 20;
 }

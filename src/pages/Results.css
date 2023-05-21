@@ -33,19 +33,18 @@
   padding-top: 50px;
 }
 
-.body_left {
+.body-left {
   background-color: #f8f4fb;
   border-radius: 25px;
   margin-right: 30px;
   padding: 20px;
 }
 
-.keyInfo {
+.key-info {
   padding: 20px;
 }
 
-.body_right {
-  background-color: #f8f4fb;
+.body-right {
   border-radius: 25px;
   width: 100%;
 }
@@ -53,11 +52,13 @@
 .news {
   background-color: white;
   border-radius: 25;
+  padding: 10px;
 }
 
 .events {
   background-color: white;
   border-radius: 25;
+  padding: 10px;
 }
 
 .weather {

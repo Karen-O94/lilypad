@@ -1,22 +1,22 @@
-.Events {
+.events {
   border-radius: 25px;
   background-color: #f8f4fb;
   display: flex;
   flex-direction: column;
 }
 
-.Events-Header {
+.events-Header {
   margin-left: 30px;
 }
 
-.Events-Body {
+.events-Body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-grow: 1;
 }
 
-.Event1 {
+.event1 {
   background-color: white;
   border-radius: 25px;
   border: 40px;
@@ -26,7 +26,7 @@
   margin: 20px;
 }
 
-.Event2 {
+.event2 {
   background-color: white;
   border-radius: 25px;
   border: 40px;
@@ -36,7 +36,7 @@
   margin: 20px;
 }
 
-.Event3 {
+.event3 {
   background-color: white;
   border-radius: 25px;
   border: 40px;

@@ -6,6 +6,7 @@ import News from "../components/News";
 import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
 import Translate from "../components/Translate";
+
 function Results() {
   return (
     <div className="page-container">
@@ -17,22 +18,19 @@ function Results() {
         ></img>
         <div className="hero-text">
           <h1>CITY NAME PLACEHOLDER</h1>
-          <div className="button">
-            <BackButton />
-          </div>
+          <BackButton />
         </div>
       </div>
       <div className="body">
-        <div className="body_left">
-          <div className="keyInfo">
+        <div className="body-left">
+          <div className="key-info">
             <KeyInfo />
           </div>
-
           <div className="weather">
             <Weather />
           </div>
         </div>
-        <div className="body_right">
+        <div className="body-right">
           <div className="news">
             <News />
           </div>
@@ -41,7 +39,8 @@ function Results() {
           </div>
         </div>
       </div>
-      <div className="body_lower">
+      <div className="body-lower">
+        {/* note classname body-lower not currently in use in results.css  */}
         <Translate />
       </div>
     </div>

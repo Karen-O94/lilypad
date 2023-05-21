@@ -3,13 +3,13 @@ import WeatherIcon from "../images/weather_placeholder.png";
 
 function Weather() {
   return (
-    <div className="weather_component">
+    <div className="weather-component">
       <img
-        className="weather_icon"
+        className="weather-icon"
         src={WeatherIcon}
         alt="placeholder weather icon"
       />
-      <div className="weather_info">
+      <div className="weather-info">
         <p>15°</p>
         <p>Cloudy</p>
       </div>

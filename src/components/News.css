@@ -1,4 +1,4 @@
-.News {
+.news {
   border-radius: 25px;
 
   background-color: #f8f4fb;
@@ -6,18 +6,18 @@
   flex-direction: column;
 }
 
-.News-Header {
+.news-header {
   margin-left: 30px;
 }
 
-.News-Body {
+.news-body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-grow: 1;
 }
 
-.News1 {
+.news1 {
   background-color: white;
   border-radius: 25px;
   border: 40px;
@@ -27,7 +27,7 @@
   margin: 20px;
 }
 
-.News2 {
+.news2 {
   background-color: white;
   border-radius: 25px;
   border: 40px;
@@ -37,7 +37,7 @@
   margin: 20px;
 }
 
-.News3 {
+.news3 {
   background-color: white;
   border-radius: 25px;
   border: 40px;

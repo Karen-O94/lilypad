@@ -5,12 +5,12 @@ import "./News.css";
 
 function News() {
   return (
-    <div className="News">
-      <div className="News-Header">
+    <div className="news">
+      <div className="news-header">
         <h3>LOCAL NEWS</h3>
       </div>
-      <div className="News-Body">
-        <div className="News1">
+      <div className="news-body">
+        <div className="news1">
           <div className="news-image">
             <a href="https://www.bbc.co.uk/news/business-65649851">
               <img src={News1} alt="News 1" />
@@ -21,7 +21,7 @@ function News() {
             claims over behaviour
           </p>
         </div>
-        <div className="News2">
+        <div className="news2">
           <div className="news-image">
             <a href="https://www.bbc.co.uk/news/uk-england-london-65648245">
               <img src={News2} alt="News 2" />
@@ -32,7 +32,7 @@ function News() {
             ground
           </p>
         </div>
-        <div className="News3">
+        <div className="news3">
           <div className="news-image">
             <a href="https://www.bbc.co.uk/news/uk-65649910">
               <img src={News3} alt="News 3" />
