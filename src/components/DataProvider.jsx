@@ -4,7 +4,7 @@ const DataProvider = ({children}) => {
 
 
     const language = () => {
-        let language = "pt"
+        let language = "de"
         return language
     }
 

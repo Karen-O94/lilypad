@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Translate({dataProvider}) {
+function Translation({dataProvider}) {
     let fromLang = 'en';
     let toLang = dataProvider.getLanguage();
 
@@ -43,4 +43,4 @@ function Translate({dataProvider}) {
 
 }
 
-export default Translate;
+export default Translation;

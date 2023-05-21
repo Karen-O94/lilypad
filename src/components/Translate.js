@@ -3,6 +3,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+// import Translation from "./Translation";
 
 function Translate() {
   return (
@@ -32,6 +33,7 @@ function Translate() {
           />
         </Box>
         <Button variant="contained">Translate</Button>
+        {/* <Translation /> */}
       </div>
     </div>
   );
