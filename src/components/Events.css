@@ -5,11 +5,11 @@
   flex-direction: column;
 }
 
-.events-Header {
+.events-header {
   margin-left: 30px;
 }
 
-.events-Body {
+.events-body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
