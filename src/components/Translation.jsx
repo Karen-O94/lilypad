@@ -1,18 +1,16 @@
 import { useState } from "react";
 
-function Translation({dataProvider}) {
+function Translation(props) {
+    const {language} = props;
     let fromLang = 'en';
-    let toLang = dataProvider.getLanguage();
+    let toLang = language
 
     const [phrase, setPhrase] = useState("Enter your text to translate")
     const [translatedText, setTranslatedText] = useState("Your translation will appear here")
 
     
-    // dataProvider.getCurrency()
-    // dataProvider.getCurrencyAndLanguage()
-    // dataProvider.getLongtitude()
-    // dataProvider.getLatitude()
-    // dataProvider.getCountry()
+    //  const {country} = props; 
+    //  console.log(country)
 
     
     // Gets translated phrase based on user input
@@ -20,7 +18,7 @@ function Translation({dataProvider}) {
         let queryText = encodeURIComponent(phraseToTranslate);
         let queryURL = `http://localhost:5000/translate?source=${fromLang}&target=${toLang}&q=${queryText}`;
 
-        console.log(queryURL)
+        // console.log(queryURL)
 
         const response = await fetch(queryURL, {
             method: 'POST'

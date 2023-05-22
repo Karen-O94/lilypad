@@ -1,133 +1,145 @@
 import React, { Children, cloneElement } from 'react';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import languageList from './languagecodetable.json'
 
 const DataProvider = ({children}) => {
-
-    const city = () => {
-        let city = "lisbon"
-        return city
-    }
-    
-    
-    const country = async () => {
-        let city = dataProvider.getCity()
-        let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
-        let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-        
-        const response = await fetch(queryURL, {
-            method: 'GET'
-        });
-        
-        let data = await response.json();
-        let country = data.sys.country.toLowerCase();
-        // console.log(country)
-        return country
-    }
+    const [city, setCity] = useState('warsaw');
+    const [country, setCountry] = useState();
+    const [longtitude, setLongtitude] = useState();
+    const [latitude, setLatitude] = useState();
+    const [currency, setCurrency] = useState();
+    const [language, setLanguage] = useState();
+    // const [flag, setFlag] = useState();
+    //...
     
 
-    const longtitude = async () => {
-        let city = dataProvider.getCity()
-        let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
-        let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-        
-        const response = await fetch(queryURL, {
-            method: 'GET'
-        });
-        
-        let data = await response.json();
-        let longtitude = data.coord.lon;
-        // console.log(longtitude)
-        return longtitude
-    }
+    useEffect(()=> {
 
-
-    const latitude = async () => {
-        let city = dataProvider.getCity()
-        let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
-        let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-        
-        const response = await fetch(queryURL, {
-            method: 'GET'
-        });
-        
-        let data = await response.json();
-        let latitude = data.coord.lat;
-        // console.log(latitude)
-        return latitude
-    }
-
-
-    const currency = async () => {
-        let currency
-        let countryCode
-        await dataProvider.getCountry().then(async country => {
-            countryCode = country
-            let queryURL = `http://localhost:5001/v3.1/alpha/${countryCode}?fields=currencies`
-
+        const fetchCountry = async () => {
+            // let city = dataProvider.getCity()
+            let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
+            let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&limit=1&appid=${apiKey}`
+            
             const response = await fetch(queryURL, {
                 method: 'GET'
             });
-    
+            
             let data = await response.json();
-            currency = Object.keys(data.currencies)[0].toLowerCase();
-
-        })
-       
-        // console.log(currency)
-        return currency
-    }
-
-
-    const language = async () => {
-        let language
-        let languageThreeDigit
-        let countryCode
-        await dataProvider.getCountry().then(async country => {
-            countryCode = country
-            let queryURL = `http://localhost:5001/v3.1/alpha/${countryCode}?fields=languages`
-
+            let country = data.sys.country.toLowerCase();
+            // console.log(country)
+            return country
+        }
+        
+    
+        const fetchLongtitude = async () => {
+            // let city = dataProvider.getCity()
+            let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
+            let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+            
             const response = await fetch(queryURL, {
                 method: 'GET'
             });
-    
+            
             let data = await response.json();
-            languageThreeDigit = Object.keys(data.languages)[0].toLowerCase();
-            language = languageList[languageThreeDigit]
+            let longtitude = data.coord.lon;
+            // console.log(longtitude)
+            return longtitude
+        }
+    
+    
+        const fetchLatitude = async () => {
+            // let city = dataProvider.getCity()
+            let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
+            let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+            
+            const response = await fetch(queryURL, {
+                method: 'GET'
+            });
+            
+            let data = await response.json();
+            let latitude = data.coord.lat;
+            // console.log(latitude)
+            return latitude
+        }
+    
+    
+        const fetchCurrency = async () => {
+            if (country) {
+                let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`
 
-        })
-       
-        // console.log(languageThreeDigit, language)
-        return language
-    }
+                const response = await fetch(queryURL, {
+                    method: 'GET'
+                });
+        
+                let data = await response.json();
+                // console.log(data)
+                return Object.keys(data.currencies)[0].toLowerCase();
+            }
+        }
+    
+    
+        async function fetchLanguage() {     
+            if (country) {
+                let languageThreeDigit
+    
+    
+                let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=languages`
+    
+                const response = await fetch(queryURL, {
+                    method: 'GET'
+                });
+    
+                let data = await response.json();
+                languageThreeDigit = Object.keys(data.languages)[0].toLowerCase();
+            
+                return languageList[languageThreeDigit]
+            }
+        }
 
-
-    const flag = () => {
-        console.log("I am flag and I swish in the wind")
-    }
-
-
-    // const currencyandlanguage = () => {
-    //      currency()
-    //      language()
-    // }
+        // const flag = () => {
+        //     console.log("I am flag and I swish in the wind")
+        // }
 
     
-    const dataProvider = {
-        getCity: city,
-        getCountry: country,
-        getLongtitude: longtitude,
-        getLatitude: latitude,
-        getCurrency: currency,
-        getLanguage: language,
-        // getCurrencyAndLanguage: currencyandlanguage,
-        getFlag: flag
+        if (!country) {
+            fetchCountry().then(c => setCountry(c))
+        }
+        if (!longtitude) {
+            fetchLongtitude().then(l => setLongtitude(l))
+        }
+        if (!latitude) {
+            fetchLatitude().then(l => setLatitude(l))
+        }
+        if (!currency) {
+            fetchCurrency().then(c => setCurrency(c))
+        }
+        if(!language) {
+            fetchLanguage().then(l => setLanguage(l))
+        }
+        // if(!flag) {
+        //     fetchFlag().then(l => setFlag(l))
+        // }
+
+
+        // console.log(city,country,language,currency)
+    }, [city,country, longtitude, latitude, currency, language])
+
+
+    const props = {
+        setCity,
+        country,
+        longtitude,
+        latitude,
+        currency,
+        language,
+        // flag,
+        
     }
 
     return (
         <div>
             {Children.map(children, child => {
-                return cloneElement(child, {dataProvider}, null);
+                return cloneElement(child, props, null);
             })}
         </div>
     )
