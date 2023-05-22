@@ -2,7 +2,7 @@ import './Home.css';
 import React from 'react';
 import TitleBanner from "../components/TitleBanner";
 import SearchBar from "../components/SearchBar";
-import LilypadLogo from "../images/LilypadLogo.jpg"
+import LilypadLogo from "../images/LilypadLogo.png"
 
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
       <h1>Welcome to Lilypad</h1>
     </div>
     <div className="search-bar-container">
-      <input type="text" placeholder="Search..." className="search-input" />
+      <input type="text" placeholder="Where do you want to go?" className="search-input" />
       <button className="search-button">Search</button>
     </div>
     <div className="title-container">
