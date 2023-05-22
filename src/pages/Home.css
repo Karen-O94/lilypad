@@ -3,6 +3,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.logo-image {
+    width: 900px; /* adjusts the width as needed or makes it bigger */
+    height: auto; /* maintains aspect ratio */
+    align-items: center;
+}
   
 .title-banner {
     background-color: #ffffff;
@@ -21,6 +27,12 @@
     justify-content: center;
     align-items: center;
     }
+
+.title-banner h1 {
+    font-size: 32px;
+    color: #333;
+    gap: 50px;
+}
   
 .search-bar-container {
     margin: 20px auto;
@@ -28,24 +40,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px; 
 }
   
 .search-bar-container input {
     width: 100%;
     padding: 10px;
     font-size: 18px;
+    border: 4px solid #ff7e67;
+
 }
   
 .search-bar-container button {
-    background-color: #007bff;
+    background-color: #42b883;
     color: #fff;
-    border: none;
+    border: 4px solid #ff7e67;
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+
 }
   
 .search-bar-container button:hover {
-    background-color: #0056b3;
+    background-color: #347474;
 }
 
