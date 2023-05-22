@@ -6,6 +6,7 @@ import News from "../components/News";
 import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
 import Translate from "../components/Translate";
+import DataProvider from "../components/DataProvider";
 
 function Results() {
   return (
@@ -27,7 +28,9 @@ function Results() {
               <KeyInfo />
             </div>
             <div className="weather">
-              <Weather />
+              <DataProvider>
+                 <Weather />
+              </DataProvider>
             </div>
           </div>
           <div className="body-right">
