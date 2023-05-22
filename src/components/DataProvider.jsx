@@ -5,7 +5,7 @@ import languageList from './languagecodetable.json'
 const DataProvider = ({children}) => {
     const [city, setCity] = useState('warsaw');
     const [country, setCountry] = useState();
-    const [longtitude, setLongtitude] = useState();
+    const [longitude, setLongtitude] = useState();
     const [latitude, setLatitude] = useState();
     const [currency, setCurrency] = useState();
     const [language, setLanguage] = useState();
@@ -41,9 +41,9 @@ const DataProvider = ({children}) => {
             });
             
             let data = await response.json();
-            let longtitude = data.coord.lon;
+            let longitude = data.coord.lon;
             // console.log(longtitude)
-            return longtitude
+            return longitude
         }
     
     
@@ -104,7 +104,7 @@ const DataProvider = ({children}) => {
         if (!country) {
             fetchCountry().then(c => setCountry(c))
         }
-        if (!longtitude) {
+        if (!longitude) {
             fetchLongtitude().then(l => setLongtitude(l))
         }
         if (!latitude) {
@@ -122,13 +122,13 @@ const DataProvider = ({children}) => {
 
 
         // console.log(city,country,language,currency)
-    }, [city,country, longtitude, latitude, currency, language])
+    }, [city,country, longitude, latitude, currency, language])
 
 
     const props = {
         setCity,
         country,
-        longtitude,
+        longitude,
         latitude,
         currency,
         language,
