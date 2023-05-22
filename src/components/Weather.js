@@ -16,6 +16,7 @@ function Weather () {
         
         const response = await fetch(queryURL);
         var data = await response.json();
+        console.log(data)
         longitude = data.coord.lon;
         latitude = data.coord.lat;
         getWeatherInfo();
@@ -48,7 +49,9 @@ function Weather () {
         var dayIcon = document.querySelector('#weather-icon');
         var img = document.createElement("img");
         img.src = iconURL;
-        dayIcon.appendChild(img);
+        dayIcon.append(img);
+        dayIcon.innerHTML = iconURL
+        // dayIcon.getAttribute(iconURL)
     }
 
     return (
@@ -58,12 +61,10 @@ function Weather () {
             <button className="btn btn-outline-success" onClick={handleCitySubmit} id="city-btn" type="submit">Search</button>
           </form>
 
-
-
             <div className="card">
-                <p id="weather-icon" alt="Displaying Weather icons" style={{margin: 10}}/>
                 <div className="container">
                     <h6 id="city"><b>City: </b></h6>
+                    <p id="weather-icon" alt="Displaying Weather icons" style={{margin: 10}}/>
                     <p id="temp">Temp: </p>
                     <p id="humidity"> Humidity: </p>
                 </div>
