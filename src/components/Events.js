@@ -1,19 +1,18 @@
-// import Event1 from "../images/Event_1_placeholder.webp";
-import Event2 from "../images/Event_2_placeholder.webp";
-import Event3 from "../images/Event_3_placeholder.webp";
 import "./Events.css";
 import { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
 
 function Events() {
-  let city = "Paris";
+  let city = "berlin";
 
   const [eventName, setEventName] = useState(
-    "no events listed, why not start your own?"
+    `looks a little quiet in ${city}, no events found`
   );
   const [eventVenue, setEventVenue] = useState(" ");
   const [eventDate, setEventDate] = useState(" ");
   const [eventImage, setEventImage] = useState(" ");
   const [eventLink, setEventLink] = useState(" ");
+  const [eventTime, setEventTime] = useState("");
 
   useEffect(() => {
     async function TicketMasterAPI() {
@@ -46,46 +45,40 @@ function Events() {
       setEventDate(formattedDate);
       setEventImage(data._embedded.events[eventIndex].images[1].url);
       setEventLink(data._embedded.events[eventIndex].url);
+      setEventTime(data._embedded.events[eventIndex].dates.start.localTime);
+
+      console.log("i have rendered!");
+      console.log(data);
+      console.log(eventLink);
     }
 
     TicketMasterAPI();
-  });
+  }, []);
 
   return (
     <div className="events">
       <div className="events-header">
-        <h3>LOCAL EVENTS</h3>
+        <h3>TRY A LOCAL EVENT:</h3>
       </div>
       <div className="events-body">
         <div className="event1">
           <div className="event-image">
-            <a href={eventLink}>
+            <a>
               <img src={eventImage} alt="Event 1" />
             </a>
           </div>
           <p>{eventName}</p>
           <p>{eventVenue}</p>
           <p>{eventDate}</p>
-        </div>
-        <div className="event2">
-          <div className="events-image">
-            <a href="https://www.ticketmaster.co.uk/red-hot-chili-peppers-tickets/artist/848229?int_cmp_name=Red-Hot-Chili-Peppers-2023&int_cmp_id=UK-10001-601&int_cmp_creative=Music-main-3&tm_link=tm_ccp_Music_main_Red-Hot-Chili-Peppers-2023">
-              <img src={Event2} alt="Event 2" />
-            </a>
-          </div>
-          <p>Red Hot Chili Peppers</p>
-          <p>Tottenham Hotspur Stadium</p>
-          <p>21st July 17:00</p>
-        </div>
-        <div className="event3">
-          <div className="event-image">
-            <a href="https://www.ticketmaster.co.uk/wizkid-tickets/artist/1599125?int_cmp_name=Wizkid-2023&int_cmp_id=UK-10001-601&int_cmp_creative=Music-main-1&tm_link=tm_ccp_Music_main_Wizkid-2023">
-              <img src={Event3} alt="Event 3" />
-            </a>
-          </div>
-          <p>WizKid</p>
-          <p>Tottenham Hotspur Stadium</p>
-          <p>29th July 17:00</p>
+          <p>{eventTime}</p>
+
+          <Button
+            variant="contained"
+            size="small"
+            onClick={() => window.open(eventLink, "_blank")}
+          >
+            Buy Tickets
+          </Button>
         </div>
       </div>
     </div>
@@ -93,8 +86,3 @@ function Events() {
 }
 
 export default Events;
-
-// // To do:
-// // add 2nd and 3rd event
-// // Error handling so 'undefined' doesn't show up
-// // break down into smaller functoins - put all HTML stuff into a function and call it within the ticketMasterAPI function
