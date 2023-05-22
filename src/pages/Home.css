@@ -2,66 +2,66 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.logo-image {
+  }
+  
+  .logo-image {
     width: 900px; /* adjusts the width as needed or makes it bigger */
     height: auto; /* maintains aspect ratio */
     align-items: center;
-}
+  }
   
-.title-banner {
+  .title-banner {
     background-color: #ffffff;
     padding: 20px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.title-container {
+  }
+  
+  .title-container {
     background-color: #ffffff;
     padding: 20px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    }
-
-.title-banner h1 {
+  }
+  
+  .title-banner h1 {
     font-size: 32px;
     color: #333;
     gap: 50px;
-}
+  }
   
-.search-bar-container {
+  .search-bar-container {
     margin: 20px auto;
     max-width: 400px;
-    display: flex;
+    display: flexbox;
     justify-content: center;
     align-items: center;
-    gap: 5px; 
-}
+    gap: 5px;
+  }
   
-.search-bar-container input {
+  .search-bar-container input {
     width: 100%;
     padding: 10px;
     font-size: 18px;
     border: 4px solid #ff7e67;
-
-}
+    margin-bottom: 10px;
+    margin-right: 50px;
+  }
   
-.search-bar-container button {
+  .search-bar-container button {
     background-color: #42b883;
     color: #fff;
     border: 4px solid #ff7e67;
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
-
-}
+  }
   
-.search-bar-container button:hover {
+  .search-bar-container button:hover {
     background-color: #347474;
-}
-
+  }
+  
