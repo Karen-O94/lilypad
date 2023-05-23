@@ -11,3 +11,12 @@
 .text {
   margin: 0;
 }
+
+@media (max-width: 400px) {
+  .container {
+    align-items: flex;
+  }
+  .icon {
+    margin-left: 10px;
+  }
+}

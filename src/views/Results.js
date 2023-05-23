@@ -1,11 +1,15 @@
 import "./Results.css";
-import BackButton from "../components/BackButton";
-import KeyInfo from "../components/KeyInfo";
+import BackButton from "./BackButton";
+import KeyInfo from "./KeyInfo";
 import Weather from "../components/Weather";
 import News from "../components/News";
 import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
-import Translate from "../components/Translate";
+import TranslatePhrases from "../components/TranslatePhrases";
+import Translation from "../components/Translation";
+import Currency from "../components/Currency";
+
+// import Translate from "../components/Translate";
 
 function Results() {
   return (
@@ -21,8 +25,8 @@ function Results() {
           <BackButton />
         </div>
       </div>
-      <div className="body">
-        <div className="body-left">
+      <div className="upper-body">
+        <div className="upper-body-left">
           <div className="key-info">
             <KeyInfo />
           </div>
@@ -30,18 +34,27 @@ function Results() {
             <Weather />
           </div>
         </div>
-        <div className="body-right">
+        <div className="upper-body-right">
           <div className="news">
             <News />
           </div>
-          <div className="events">
-            <Events />
-          </div>
         </div>
       </div>
-      <div className="body-lower">
-        {/* note classname body-lower not currently in use in results.css  */}
-        <Translate />
+      <div className="mid-body">
+        <div className="translation">
+          <Translation />
+        </div>
+        <div className="currency">
+          <Currency />
+        </div>
+      </div>
+      <div className="lower-body">
+        <div className="events">
+          <Events />
+        </div>
+        <div className="translate-phrases">
+          <TranslatePhrases />
+        </div>
       </div>
     </div>
   );
