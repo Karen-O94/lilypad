@@ -9,6 +9,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/results" element={<DataProvider><Results /></DataProvider>} />
     </Routes>
+
   );
 }
 
