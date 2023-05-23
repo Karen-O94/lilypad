@@ -8,7 +8,8 @@ function TranslatePhrases(props) {
     const phraseList = phraseFixture.phrases
     const [translatedText, setTranslatedText] = useState("Your translation will appear here")
     
-
+    const {latitude, longitude, country, city, currency, currencyName, languageName} = props; 
+    
     //Translates list of phrases when the component loads
     useEffect(() => {
         if (language) {
@@ -22,6 +23,8 @@ function TranslatePhrases(props) {
                 });
                 let data = await response.json();
                 setTranslatedText(data.translatedText);
+                console.log(latitude, longitude, country, city, currency, currencyName, languageName)
+
                 
             }
            TranslatePhraseRequest();

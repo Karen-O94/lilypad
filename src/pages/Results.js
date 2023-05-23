@@ -6,8 +6,12 @@ import News from "../components/News";
 import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
 import Translate from "../components/Translate";
+import DataProvider from "../components/DataProvider";
 
-function Results() {
+function Results(props) {
+
+  const {city} = props;
+
   return (
     <div className="page-container">
         <div className="hero-container">
@@ -17,17 +21,21 @@ function Results() {
             alt="landscape placeholder"
           ></img>
           <div className="hero-text">
-            <h1>CITY NAME PLACEHOLDER</h1>
+            <h1>WELCOME TO {city}!</h1>
             <BackButton />
           </div>
         </div>
         <div className="body">
           <div className="body-left">
             <div className="key-info">
-              <KeyInfo />
+              <DataProvider>
+                <KeyInfo />
+              </DataProvider>
             </div>
             <div className="weather">
-              <Weather />
+              <DataProvider>
+                <Weather />
+              </DataProvider>
             </div>
           </div>
           <div className="body-right">

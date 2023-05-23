@@ -4,7 +4,11 @@ import RecordVoiceOver from "@mui/icons-material/RecordVoiceOver";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
-function KeyInfo() {
+
+function KeyInfo(props) {
+
+  const {city, country, languageName, currencyName} = props;
+
   return (
     <>
       <div className="container">
@@ -12,7 +16,7 @@ function KeyInfo() {
           <PinDropIcon />
         </div>
         <div className="text">
-          <p>United Kingdom</p>
+          <p>{city}, {country}</p>
         </div>
       </div>
       <div className="container">
@@ -20,7 +24,7 @@ function KeyInfo() {
           <RecordVoiceOver />
         </div>
         <div className="text">
-          <p>English Speaking </p>
+          <p>{languageName}</p>
         </div>
       </div>
       <div className="container">
@@ -28,7 +32,7 @@ function KeyInfo() {
           <AttachMoneyIcon />
         </div>
         <div className="text">
-          <p>GBP </p>
+          <p>{currencyName}</p>
         </div>
       </div>
       <div className="container">
