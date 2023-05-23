@@ -9,10 +9,6 @@ function Translation(props) {
     const [translatedText, setTranslatedText] = useState("Your translation will appear here")
 
     
-    //  const {country} = props; 
-    //  console.log(country)
-
-    
     // Gets translated phrase based on user input
     const translateRequest = async (phraseToTranslate) => {
         let queryText = encodeURIComponent(phraseToTranslate);
@@ -26,7 +22,7 @@ function Translation(props) {
         let data = await response.json();
         let translatedContent = data.translatedText;
 
-        console.log(translatedContent);
+        // console.log(translatedContent);
         return translatedContent;
         
     }

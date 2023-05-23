@@ -3,8 +3,8 @@ import WeatherIcon from "../images/weather_placeholder.png";
 import { useEffect, useState } from "react";
 
 function Weather(props) {
-    const {latitude, longitude} = props;
-    let city1 = "warsaw";
+    const {city, latitude, longitude} = props;
+    let city1 = city;
     let lat = latitude;
     let long = longitude;
     const [temperature, setTemperature] = useState('');
@@ -16,21 +16,33 @@ function Weather(props) {
       }
 
     useEffect(() => {
+      if (latitude) {
         async function getWeatherData() {
-            let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
-            let queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${apiKey}`;
-    
+
+          let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
+          let queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${apiKey}`;
+
+          try {
             const response = await fetch(queryURL, {
-                method: 'GET'
+              method: "GET",
             });
-            console.log(city1, lat,long)
+
+            // console.log(city1, lat, long);
+
             let data = await response.json();
-            console.log(data)
-            setTemperature(fromKelvinToCelsius(data.current.temp) + "°C")
-            setHumidity(data.current.humidity + "%")
-            }
+
+            // console.log(data);
             
+            setTemperature(fromKelvinToCelsius(data.current.temp) + "°C");
+            setHumidity(data.current.humidity + "%");
+          }
+          catch (error) {
+            alert("There was an error fetching the data", error);
+          }
+
+        }
         getWeatherData();
+      }
     });
 
   return (
