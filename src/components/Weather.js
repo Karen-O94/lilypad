@@ -22,20 +22,27 @@ function Weather(props) {
           let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
           let queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${apiKey}`;
 
-          const response = await fetch(queryURL, {
-              method: 'GET'
-          });
+          try {
+            const response = await fetch(queryURL, {
+              method: "GET",
+            });
 
-          // console.log(city1, lat,long)
-          let data = await response.json();
-          // console.log(data)
+            // console.log(city1, lat, long);
 
-          setTemperature(fromKelvinToCelsius(data.current.temp) + "°C")
-          setHumidity(data.current.humidity + "%")
+            let data = await response.json();
 
+            // console.log(data);
+            
+            setTemperature(fromKelvinToCelsius(data.current.temp) + "°C");
+            setHumidity(data.current.humidity + "%");
           }
-          getWeatherData();
+          catch (error) {
+            alert("There was an error fetching the data", error);
+          }
+
         }
+        getWeatherData();
+      }
     });
 
   return (

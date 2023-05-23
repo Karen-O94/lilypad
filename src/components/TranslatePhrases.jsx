@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import phraseFixture from './phrases.json'
 
 function TranslatePhrases(props) {
-    const {language} = props
+    const {language} = props;
     let fromLang = "en";
-    let toLang = language
-    const phraseList = phraseFixture.phrases
-    const [translatedText, setTranslatedText] = useState("Your translation will appear here")
+    let toLang = language;
+    const phraseList = phraseFixture.phrases;
+    const [translatedText, setTranslatedText] = useState("Your translation will appear here");
     
-    const {latitude, longitude, country, city, currency, currencyName, languageName} = props; 
-    
+    // const {city, latitude, longitude, country,currency, currencyName, languageName, exchangeRate} = props; 
+
     //Translates list of phrases when the component loads
     useEffect(() => {
         if (language) {
@@ -23,7 +23,7 @@ function TranslatePhrases(props) {
                 });
                 let data = await response.json();
                 setTranslatedText(data.translatedText);
-                console.log(latitude, longitude, country, city, currency, currencyName, languageName)
+                // console.log(latitude, longitude, country, city, currency, currencyName, languageName, exchangeRate)
 
                 
             }

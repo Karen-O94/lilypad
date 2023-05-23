@@ -9,6 +9,7 @@ const DataProvider = ({children}) => {
     const [latitude, setLatitude] = useState();
     const [currency, setCurrency] = useState();
     const [currencyName, setCurrencyName] = useState();
+    const [exchangeRate, setExchangeRate] = useState();
     const [language, setLanguage] = useState();
     const [languageName, setLanguageName] = useState();
     // const [flag, setFlag] = useState();
@@ -17,12 +18,12 @@ const DataProvider = ({children}) => {
 
     useEffect(()=> {
 
-        async function fetchCity() {
-            let city = "rome"
+        function fetchCity() {
+            let city = "lodz" 
             // console.log(city)
             return city
         }
-
+    
 
         async function fetchCountry() {
             if (city) {
@@ -32,12 +33,10 @@ const DataProvider = ({children}) => {
                 const response = await fetch(queryURL, {
                     method: 'GET',
                     headers: {'X-Api-Key': apiKey}
-                }).catch((e) => {
-                    console.log(e)
                 });
                 
                 let data = await response.json();
-                let country = data[0].country.toLowerCase(); // this API only ever returns one data point -if this ever returned more than one, we only want one
+                let country = data[0].country; // this API only ever returns one data point -if this ever returned more than one, we only want one
                 // console.log(country)
                 return country
             }
@@ -52,8 +51,6 @@ const DataProvider = ({children}) => {
                 const response = await fetch(queryURL, {
                     method: 'GET',
                     headers: {'X-Api-Key': apiKey}
-                }).catch((e) => {
-                    console.log(e)
                 });
                 
                 let data = await response.json();
@@ -72,8 +69,6 @@ const DataProvider = ({children}) => {
                 const response = await fetch(queryURL, {
                     method: 'GET',
                     headers: {'X-Api-Key': apiKey}
-                }).catch((e) => {
-                    console.log(e)
                 });
                 
                 let data = await response.json();
@@ -94,7 +89,7 @@ const DataProvider = ({children}) => {
         
                 let data = await response.json();
                 // console.log(data)
-                return Object.keys(data.currencies)[0].toLowerCase();
+                return Object.keys(data.currencies)[0];
             }
         }
 
@@ -110,7 +105,26 @@ const DataProvider = ({children}) => {
                 let data = await response.json();
                 // console.log(data)
                 let currencyKey = Object.keys(data.currencies)[0];
+
                 return data.currencies[currencyKey].name;
+            }
+        }
+
+
+        async function fetchExchangeRate() {
+            if (currency) {
+                let apiKey = "AcoRUsoipr4ezllPB8m9rIXjy27p4OH8OKCYfESt"
+                let queryURL = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&currencies=${currency}&base_currency=GBP`
+                
+                const response = await fetch(queryURL, {
+                    method: 'GET',
+                });
+        
+                let data = await response.json();
+                // console.log(data)
+                let exchangeRate = data.data[currency];
+
+                return exchangeRate
             }
         }
     
@@ -158,7 +172,7 @@ const DataProvider = ({children}) => {
         
 
         if (!city) {
-            fetchCity().then(c => setCity(c))
+            setCity(fetchCity())
         }
         if (!country) {
             fetchCountry().then(c => setCountry(c))
@@ -175,6 +189,9 @@ const DataProvider = ({children}) => {
         if (!currencyName) {
             fetchCurrencyName().then(c => setCurrencyName(c))
         }
+        if (!exchangeRate) {
+            fetchExchangeRate().then(e => setExchangeRate(e))
+        }
         if(!language) {
             fetchLanguage().then(l => setLanguage(l))
         }
@@ -187,7 +204,7 @@ const DataProvider = ({children}) => {
 
 
         // console.log(city,country,language,currency)
-    }, [city,country, longitude, latitude, currency, currencyName, language, languageName])
+    }, [city, country, longitude, latitude, currency, currencyName, exchangeRate, language, languageName])
 
 
     const props = {
@@ -197,6 +214,7 @@ const DataProvider = ({children}) => {
         latitude,
         currency,
         currencyName,
+        exchangeRate,
         language,
         languageName,
         // flag,

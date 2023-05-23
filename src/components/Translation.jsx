@@ -22,7 +22,7 @@ function Translation(props) {
         let data = await response.json();
         let translatedContent = data.translatedText;
 
-        console.log(translatedContent);
+        // console.log(translatedContent);
         return translatedContent;
         
     }

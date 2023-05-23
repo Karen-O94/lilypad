@@ -7,6 +7,7 @@ import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
 import Translate from "../components/Translate";
 import DataProvider from "../components/DataProvider";
+import Currency from "../components/Currency";
 
 function Results(props) {
 
@@ -50,7 +51,12 @@ function Results(props) {
         <div className="body-lower">
           {/* note classname body-lower not currently in use in results.css  */}
           <Translate />
-        </div>
+        <div className="events">
+          <DataProvider>
+            <Currency />
+          </DataProvider>
+          </div>
+      </div>
     </div>
   );
 }
