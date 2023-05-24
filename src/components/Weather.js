@@ -9,7 +9,7 @@ function Weather(props) {
     let long = longitude;
     const [temperature, setTemperature] = useState('');
     const [humidity, setHumidity] = useState('');
-    //const [icon, setIcon] = useState('');
+    const [icon, setIcon] = useState('');
 
     function fromKelvinToCelsius(kelvin) {
         return Math.round((kelvin - 273.15) * 10) / 10;
@@ -35,6 +35,7 @@ function Weather(props) {
             
             setTemperature(fromKelvinToCelsius(data.current.temp) + "°C");
             setHumidity(data.current.humidity + "%");
+            setIcon(data.current.weather[0].icon);
           }
           catch (error) {
             alert("There was an error fetching the data", error);
@@ -50,7 +51,7 @@ function Weather(props) {
       <h6 id="city"><b>{city1} </b></h6>
       <img
         className="weather-icon"
-        src={WeatherIcon}
+        src={`http://openweathermap.org/img/w/${icon}.png`}
         alt="placeholder weather icon"
       />
       <div className="weather-info">
