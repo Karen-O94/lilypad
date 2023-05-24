@@ -5,20 +5,30 @@ import Weather from "../components/Weather";
 import News from "../components/News";
 import Events from "../components/Events";
 import Landscape_placeholder from "../images/landscape_placeholder.jpg";
+import lilypad1 from "../images/lilypad5.jpg";
 import Translate from "../components/Translate";
 import DataProvider from "../components/DataProvider";
 import Currency from "../components/Currency";
 
 function Results(props) {
 
-  const {city} = props;
+  const {city, locationPhoto} = props;
+
+  const randomPhoto = () => {
+    if (locationPhoto) {
+      console.log()
+      return locationPhoto[Math.floor(Math.random() * (locationPhoto.length - 0 + 1))]  
+    }
+    // console.log()
+    return lilypad1
+  }
 
   return (
     <div className="page-container">
         <div className="hero-container">
           <img
             className="hero-image"
-            src={Landscape_placeholder}
+            src={randomPhoto()}
             alt="landscape placeholder"
           ></img>
           <div className="hero-text">

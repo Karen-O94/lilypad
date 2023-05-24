@@ -1,6 +1,6 @@
 import React, { Children, cloneElement } from 'react';
 import { useEffect, useState } from "react";
-import languageList from './languagecodetable.json'
+import languageList from '../json/languagecodetable.json'
 
 const DataProvider = ({children}) => {
     const [city, setCity] = useState();
@@ -12,6 +12,7 @@ const DataProvider = ({children}) => {
     const [exchangeRate, setExchangeRate] = useState();
     const [language, setLanguage] = useState();
     const [languageName, setLanguageName] = useState();
+    const [locationPhoto, setLocationPhoto] = useState();
     // const [flag, setFlag] = useState();
     //...
     
@@ -19,7 +20,7 @@ const DataProvider = ({children}) => {
     useEffect(()=> {
 
         function fetchCity() {
-            let city = "lodz" 
+            let city = "paris" 
             // console.log(city)
             return city
         }
@@ -166,6 +167,27 @@ const DataProvider = ({children}) => {
             }
         }
 
+        async function fetchPhoto() {
+            if (latitude) {
+                let apiKey = "xQ2jQbQVMvucBH2sNWSM6l9X5oWI2TH89SXXUDMwXMtQx5QPM0eYxFRr"
+                let queryURL = `https://api.pexels.com/v1/search?query=${city}&orientation=landscape&page=1`
+                
+                const response = await fetch(queryURL, {
+                    method: 'GET',
+                    headers: {'Authorization': apiKey}
+                });
+                
+                let data = await response.json();
+                let photos = []
+                data.photos.forEach((photo) => {
+                    photos.push(photo.src.original)
+                })
+                // let photo = data.photos[0].src.original;
+                // console.log(photos)
+                return photos
+            }
+        }
+
         // const flag = () => {
         //     console.log("I am flag and I swish in the wind")
         // }
@@ -198,13 +220,16 @@ const DataProvider = ({children}) => {
         if(!languageName) {
             fetchLanguageName().then(l => setLanguageName(l))
         }
+        if(!locationPhoto) {
+            fetchPhoto().then(p => setLocationPhoto(p))
+        }
         // if(!flag) {
         //     fetchFlag().then(l => setFlag(l))
         // }
 
 
         // console.log(city,country,language,currency)
-    }, [city, country, longitude, latitude, currency, currencyName, exchangeRate, language, languageName])
+    }, [city, country, longitude, latitude, currency, currencyName, exchangeRate, language, languageName, locationPhoto])
 
 
     const props = {
@@ -217,6 +242,7 @@ const DataProvider = ({children}) => {
         exchangeRate,
         language,
         languageName,
+        locationPhoto,
         // flag,
         
     }
