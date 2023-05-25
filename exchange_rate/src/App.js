@@ -4,6 +4,7 @@ import './App.css';
 
 const App = () => {
   const [currencyCode, setCurrencyCode] = useState('');
+  const [amount, setAmount] = useState('');
   const [exchangeRate, setExchangeRate] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -12,12 +13,17 @@ const App = () => {
     setCurrencyCode(value);
   };
 
+  const handleAmountChange = (event) => {
+    const value = event.target.value;
+    setAmount(value);
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (currencyCode) {
+    if (currencyCode && amount) {
       const apiKey = 'lYgzjJUuEyZmoq2kMBRaecDpR68UQatT';
-      const url = `https://api.apilayer.com/exchangerates_data/convert?from=GBP&to=${currencyCode}&amount=1`;
+      const url = `https://api.apilayer.com/exchangerates_data/convert?from=GBP&to=${currencyCode}&amount=${amount}`;
 
       axios
         .get(url, {
@@ -57,11 +63,22 @@ const App = () => {
             onChange={handleCurrencyChange}
           />
         </div>
+        <div className="input-group">
+          <label htmlFor="amount-input">Amount:</label>
+          <input
+            id="amount-input"
+            type="text"
+            value={amount}
+            onChange={handleAmountChange}
+          />
+        </div>
         <button type="submit">Get Exchange Rate</button>
       </form>
       {exchangeRate !== null && (
         <p className="exchange-rate">
           1 GBP = {exchangeRate.toFixed(6)} {currencyCode}
+          <br />
+          {amount} GBP = {(exchangeRate * amount).toFixed(6)} {currencyCode}
         </p>
       )}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
