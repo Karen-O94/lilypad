@@ -9,7 +9,7 @@ form.addEventListener('submit', function(event) {
   event.preventDefault(); // this prevents the form from submitting and refreshing the page
 
   const destination = destinationInput.value;
-  const url = `https://gnews.io/api/v4/top-headlines?q=${destination}&max=5&token=${apikey}&image=required`;
+  const url = `https://gnews.io/api/v4/top-headlines?q=${destination}&category=general&max=5&image=required&lang=en&apikey=${apikey}`;
 
   fetch(url)
     .then(response => response.json())

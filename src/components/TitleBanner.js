@@ -1,8 +1,13 @@
+import LilypadLogo from "../images/LilypadLogo.png"
+
 function TitleBanner() {
   return (
-    <>
-      <h1>LILY PAD</h1>
-    </>
+    <div className="title-banner">
+    <header>
+      <img src={LilypadLogo} alt="Logo" className="logo-image" />
+    </header>
+    </div>
+  
   );
 }
 
