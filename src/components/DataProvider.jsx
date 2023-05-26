@@ -7,6 +7,7 @@ const DataProvider = ({children}) => {
     const [country, setCountry] = useState();
     const [longitude, setLongitude] = useState();
     const [latitude, setLatitude] = useState();
+    const [timezone, setTimezone] = useState();
     const [currency, setCurrency] = useState();
     const [currencyName, setCurrencyName] = useState();
     const [exchangeRate, setExchangeRate] = useState();
@@ -21,6 +22,7 @@ const DataProvider = ({children}) => {
             setCountry()
             setLongitude()
             setLatitude()
+            setTimezone()
             setCurrency()
             setCurrencyName()
             setExchangeRate()
@@ -95,6 +97,27 @@ const DataProvider = ({children}) => {
                 let latitude = data[0].latitude;
                 // console.log(latitude)
                 return latitude
+            }
+        }
+
+
+        async function fetchTimezone() {
+            if (timezone) {
+                return timezone
+            }
+
+            if (longitude) {
+                let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
+                let queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=${apiKey}`
+                
+                const response = await fetch(queryURL, {
+                    method: "GET",
+                });
+                
+                let data = await response.json();
+                let timezone = data.timezone;
+                console.log(timezone)
+                return timezone
             }
         }
     
@@ -240,6 +263,9 @@ const DataProvider = ({children}) => {
         if (!latitude) {
             fetchLatitude().then(l => setLatitude(l))
         }
+        if (!timezone) {
+            fetchTimezone().then(t => setTimezone(t))
+        }
         if (!currency) {
             fetchCurrency().then(c => setCurrency(c))
         }
@@ -261,7 +287,7 @@ const DataProvider = ({children}) => {
 
 
         // console.log(city,country,language,currency)
-    }, [country, city, setCity, longitude, latitude, currency, currencyName, exchangeRate, language, languageName, locationPhoto])
+    }, [country, city, setCity, longitude, latitude, timezone,currency, currencyName, exchangeRate, language, languageName, locationPhoto])
 
 
     const props = {
@@ -270,6 +296,7 @@ const DataProvider = ({children}) => {
         country,
         longitude,
         latitude,
+        timezone,
         currency,
         currencyName,
         exchangeRate,
