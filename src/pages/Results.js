@@ -47,7 +47,7 @@ function Results({props}) {
               <News props={props}/>
             </div>
             <div className="events">
-              <Events props={props}/>
+              <Events city={props.city}/>
             </div>
           </div>
         </div>

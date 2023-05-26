@@ -29,7 +29,7 @@ function TranslatePhrases({props}) {
             }
            TranslatePhraseRequest();
         }
-    })
+    });
 
     const arr1 = phraseList
     const arr2 = translatedText.split("\n")

@@ -3,10 +3,8 @@ import PinDropIcon from "@mui/icons-material/PinDrop";
 import RecordVoiceOver from "@mui/icons-material/RecordVoiceOver";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
-
-
-function KeyInfo({props}) {
-  const {city, country, timezone, languageName} = props;
+function KeyInfo({ props }) {
+  const { city, country, timezone, languageName } = props;
   return (
     <>
       <div className="container">
@@ -14,7 +12,9 @@ function KeyInfo({props}) {
           <PinDropIcon />
         </div>
         <div className="text">
-          <p>{city}, {country}</p>
+          <p>
+            {city}, {country}
+          </p>
         </div>
       </div>
       <div className="container">
@@ -26,7 +26,6 @@ function KeyInfo({props}) {
         </div>
       </div>
 
-
       <div className="container">
         <div className="icon">
           <AccessTimeIcon />
@@ -36,10 +35,8 @@ function KeyInfo({props}) {
         </div>
       </div>
 
-    <div>
       <div>
-      
-      </div>
+        <div></div>
       </div>
     </>
   );
