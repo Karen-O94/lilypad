@@ -43,7 +43,7 @@ function TranslatePhrases({props}) {
         
     return (
         <div className="phrase-div">
-            <h1>Key Phrases for your visit</h1>
+            <h3>Key Phrases for your visit</h3>
             <table className="phrase-table">
                 <thead>
                     <tr>

@@ -4,16 +4,16 @@ import languageList from '../json/languagecodetable.json'
 
 const DataProvider = ({children}) => {
     const [city, setCity] = useState();
-    const [country, setCountry] = useState();
-    const [longitude, setLongitude] = useState();
-    const [latitude, setLatitude] = useState();
-    const [timezone, setTimezone] = useState();
-    const [currency, setCurrency] = useState();
-    const [currencyName, setCurrencyName] = useState();
-    const [exchangeRate, setExchangeRate] = useState();
-    const [language, setLanguage] = useState();
-    const [languageName, setLanguageName] = useState();
-    const [locationPhoto, setLocationPhoto] = useState();
+    const [country, setCountry] = useState(null);
+    const [longitude, setLongitude] = useState(null);
+    const [latitude, setLatitude] = useState(null);
+    const [timezone, setTimezone] = useState(null);
+    const [currency, setCurrency] = useState(null);
+    const [currencyName, setCurrencyName] = useState(null);
+    const [exchangeRate, setExchangeRate] = useState(null);
+    const [language, setLanguage] = useState(null);
+    const [languageName, setLanguageName] = useState(null);
+    const [locationPhoto, setLocationPhoto] = useState(null);
 
 
     const updateCity = (cityName) => {
@@ -116,7 +116,7 @@ const DataProvider = ({children}) => {
                 
                 let data = await response.json();
                 let timezone = data.timezone;
-                // console.log(timezone)
+                console.log(timezone)
                 return timezone
             }
         }
