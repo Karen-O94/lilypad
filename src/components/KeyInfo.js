@@ -7,7 +7,7 @@ import CurrencyPoundIcon from '@mui/icons-material/CurrencyPound';
 
 
 function KeyInfo({props}) {
-  const {city, country, languageName, currencyName, exchangeRate, currency} = props;
+  const {city, country, timezone, languageName, currencyName, exchangeRate, currency} = props;
   return (
     <>
       <div className="container">
@@ -47,7 +47,7 @@ function KeyInfo({props}) {
           <AccessTimeIcon />
         </div>
         <div className="text">
-          <p>16:32 </p>
+          <p>{timezone} </p>
         </div>
       </div>
     </>
