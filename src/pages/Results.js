@@ -34,6 +34,10 @@ function Results({props}) {
             <div className="key-info">
                 <KeyInfo props={props}/>
             </div>
+            <div className="currency">
+                <Currency props={props}/>
+            </div>
+            <br></br>
             <div className="weather">
                 <Weather props={props}/>
             </div>
@@ -50,9 +54,6 @@ function Results({props}) {
         <div className="body-lower">
           {/* note classname body-lower not currently in use in results.css  */}
           <Translate props={props}/>
-        <div className="events">
-            <Currency props={props}/>
-          </div>
       </div>
     </div>
   );

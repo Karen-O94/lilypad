@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import phraseFixture from '../json/phrases.json'
 
 function TranslatePhrases({props}) {
-    const {language} = props;
+    const {language, languageName} = props;
     let fromLang = "en";
     let toLang = language;
     const phraseList = phraseFixture.phrases;
@@ -43,12 +43,12 @@ function TranslatePhrases({props}) {
         
     return (
         <div className="phrase-div">
-            <h1>Key Phrases for your visit</h1>
+            <h3>Key Phrases for your visit</h3>
             <table className="phrase-table">
                 <thead>
                     <tr>
-                        <th>{fromLang}</th>
-                        <th>{toLang}</th>
+                        <th>English</th>
+                        <th>{languageName}</th>
                     </tr>
                 </thead>
                 <tbody>

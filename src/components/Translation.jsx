@@ -29,7 +29,7 @@ function Translation({props}) {
 
     return (
         <div>
-            <h1>Translate your own phrases here!</h1>
+            <h3>Translate your own phrases here!</h3>
             <p><input id="text_to_translate" type="text" onChange={ (e) => setPhrase(e.currentTarget.value) } placeholder="Enter your text to translate" size={30}></input></p>
             <button id="submit_button" onClick={ () => translateRequest(phrase).then((text) => setTranslatedText(text)) }>Translate!</button>
             <br></br>
