@@ -1,35 +1,49 @@
-const form = document.querySelector('form');
-const destinationInput = document.querySelector('#destination-input');
-const searchButton = document.querySelector('#search-button');
-const headlinesList = document.querySelector('#headlines');
+import { useState } from "react";
 
-const apikey = '62bcea3d0ec6311465039f3e2a53dda2';
+function NewsHeadlines() {
+  const [headlines, setHeadlines] = useState([]);
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // this prevents the form from submitting and refreshing the page
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const destination = event.target.elements.destination.value;
+    const apiKey = 'f36795f9abc460d7b535bfe9ab2b93f5';
+    const queryURL = `https://gnews.io/api/v4/top-headlines?q=${destination}&max=5&image=required&token=${apiKey}`;
 
-  const destination = destinationInput.value;
-  const url = `https://gnews.io/api/v4/top-headlines?q=${destination}&category=general&max=5&image=required&lang=en&apikey=${apikey}`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      headlinesList.innerHTML = ''; // this will clear the existing list each time the user enters new input
-
-      data.articles.forEach(article => {
-        const li = document.createElement('li');
-        const image = document.createElement('img');
-        image.src = article.image;
-        image.alt = 'Article Image';
-        const link = document.createElement('a');
-        link.href = article.url;
-        link.target = '_blank';
-        link.textContent = article.title;
-        li.appendChild(image);
-        li.appendChild(link);
-        li.innerHTML += ` - ${article.description}`;
-        headlinesList.appendChild(li);
+    try {
+      const response = await fetch(queryURL, {
+        method: "GET",
       });
-    })
-    .catch(error => console.log(error));
-});
+
+      const data = await response.json();
+      setHeadlines(data.articles);
+    } 
+    catch (error) {
+      alert("There was an error fetching the data", error);
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleFormSubmit}>
+        <label htmlFor="destination">Enter your destination:</label>
+        <input type="text" name="destination" id="destination" />
+        <button type="submit">Search</button>
+      </form>
+
+
+      <ul>
+        {headlines.map((article, index) => (
+          <li key={index}>
+            <a href={article.url}>
+              {article.title}
+            </a>
+            <img src={article.image} alt="Article" />
+            - {article.description}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default NewsHeadlines;
