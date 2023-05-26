@@ -77,7 +77,7 @@ function Events() {
             size="small"
             onClick={() => window.open(eventLink, "_blank")}
           >
-            BUY TICKETS
+            Buy Tickets
           </Button>
         </div>
       </div>

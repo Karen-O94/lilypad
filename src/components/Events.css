@@ -7,32 +7,45 @@
 
 .events-header {
   margin-left: 30px;
-  padding: 10px;
 }
 
 .events-body {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  flex-grow: 1;
+}
+
+.event1 {
   background-color: white;
   border-radius: 25px;
   border: 40px;
   padding: 30px;
   width: 400px;
+  flex-wrap: wrap;
   margin: 20px;
 }
 
-.event-image {
-  max-width: 100%;
-  padding: 10px;
-}
-
-.event-image img {
+.event2 {
+  background-color: white;
   border-radius: 25px;
+  border: 40px;
+  padding: 30px;
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 20px;
 }
 
-@media (max-width: 400px) {
-  .events-body {
-    background-color: #f8f4fb;
-    width: 100%;
-  }
+.event3 {
+  background-color: white;
+  border-radius: 25px;
+  border: 40px;
+  padding: 30px;
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+event-image {
+  border-radius: 25px;
 }
