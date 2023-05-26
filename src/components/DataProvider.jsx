@@ -13,8 +13,7 @@ const DataProvider = ({children}) => {
     const [language, setLanguage] = useState();
     const [languageName, setLanguageName] = useState();
     const [locationPhoto, setLocationPhoto] = useState();
-    // const [flag, setFlag] = useState();
-    //...
+
 
     const updateCity = (cityName) => {
         if (city !== cityName) {
@@ -33,12 +32,6 @@ const DataProvider = ({children}) => {
     
 
     useEffect(()=> {
-        // function fetchCity() {
-        //     let city = "paris" 
-        //     // console.log(city)
-        //     return city
-        // }
-    
 
         async function fetchCountry() {
             if (country) {
@@ -237,14 +230,7 @@ const DataProvider = ({children}) => {
             }
         }
 
-        // const flag = () => {
-        //     console.log("I am flag and I swish in the wind")
-        // }
-        
 
-        // if (!city) {
-        //     setCity(fetchCity())
-        // }
         if (!country) {
             fetchCountry().then(c => setCountry(c))
         }
@@ -272,9 +258,6 @@ const DataProvider = ({children}) => {
         if(!locationPhoto) {
             fetchLocationPhoto().then(p => setLocationPhoto(p))
         }
-        // if(!flag) {
-        //     fetchFlag().then(l => setFlag(l))
-        // }
 
 
         // console.log(city,country,language,currency)
@@ -293,7 +276,6 @@ const DataProvider = ({children}) => {
         language,
         languageName,
         locationPhoto,
-        // flag,
         
     }
 
