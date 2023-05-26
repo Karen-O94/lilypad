@@ -1,7 +1,7 @@
 function TitleBanner() {
   return (
     <>
-      <h1>LILY PAD</h1>
+      <h1>LILYPAD</h1>
     </>
   );
 }

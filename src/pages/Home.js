@@ -1,11 +1,11 @@
 import TitleBanner from "../components/TitleBanner";
 import SearchBar from "../components/SearchBar";
 
-const Home = () => {
+const Home = ({props}) => {
   return (
     <>
       <TitleBanner />
-      <SearchBar />
+      <SearchBar updateCity={props.updateCity}/>
     </>
   );
 };

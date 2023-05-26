@@ -1,12 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function SearchBar() {
-  const navigate = useNavigate();
+function SearchBar(props) {
+  const [cityInput, setCityInput] = useState();
+
+  const searchActions = () => {
+    props.updateCity(cityInput.toUpperCase())
+  }
+
   return (
     <>
-      <input></input>
+      <input autoFocus onBlur={(e) => setCityInput(e.currentTarget.value)} placeholder="Where do you want to go?"></input>
 
-      <button onClick={() => navigate("results")}>Search</button>
+      <button onClick={() => searchActions()}>Search</button>
     </>
   );
 }

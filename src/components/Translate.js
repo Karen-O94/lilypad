@@ -5,15 +5,16 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import TranslatePhrases from "./TranslatePhrases";
 import Translation from "./Translation";
-import DataProvider from "./DataProvider";
+// import DataProvider from "./DataProvider";
 
-function Translate() {
+function Translate({props}) {
+  console.log(props)
   return (
     <div className="translate-container">
       <div className="translate-phrases">
-        <DataProvider>
-          <TranslatePhrases/>
-        </DataProvider>
+        {/* <DataProvider> */}
+          <TranslatePhrases props={props}/>
+        {/* </DataProvider> */}
       </div>
       <div className="translate-input">
         <h3>TRANSLATE</h3>
@@ -33,9 +34,9 @@ function Translate() {
           />
         </Box>
         <Button variant="contained">Translate</Button>
-        <DataProvider>
-            <Translation/>
-          </DataProvider>
+        {/* <DataProvider> */}
+            <Translation props={props}/>
+          {/* </DataProvider> */}
       </div>
     </div>
   );

@@ -13,20 +13,31 @@ const DataProvider = ({children}) => {
     const [language, setLanguage] = useState();
     const [languageName, setLanguageName] = useState();
     const [locationPhoto, setLocationPhoto] = useState();
-    // const [flag, setFlag] = useState();
-    //...
+
+
+    const updateCity = (cityName) => {
+        if (city !== cityName) {
+            setCity(cityName)
+            setCountry()
+            setLongitude()
+            setLatitude()
+            setCurrency()
+            setCurrencyName()
+            setExchangeRate()
+            setLanguage()
+            setLanguageName()
+            setLocationPhoto()
+        }
+    }
     
 
     useEffect(()=> {
 
-        function fetchCity() {
-            let city = "paris" 
-            // console.log(city)
-            return city
-        }
-    
-
         async function fetchCountry() {
+            if (country) {
+                return country
+            }
+
             if (city) {
                 let apiKey = "TPeKHqkG6z2eYd8cYAuj4Q==ChId75RDBpyFpona"
                 let queryURL = `https://api.api-ninjas.com/v1/city?name=${city}`
@@ -45,6 +56,10 @@ const DataProvider = ({children}) => {
         
     
         async function fetchLongitude() {
+            if (longitude) {
+                return longitude
+            }
+
             if (city) {
                 let apiKey = "TPeKHqkG6z2eYd8cYAuj4Q==ChId75RDBpyFpona"
                 let queryURL = `https://api.api-ninjas.com/v1/city?name=${city}`
@@ -63,6 +78,10 @@ const DataProvider = ({children}) => {
     
     
         async function fetchLatitude() {
+            if (latitude) {
+                return latitude
+            }
+
             if (longitude) {
                 let apiKey = "TPeKHqkG6z2eYd8cYAuj4Q==ChId75RDBpyFpona"
                 let queryURL = `https://api.api-ninjas.com/v1/city?name=${city}`
@@ -81,6 +100,10 @@ const DataProvider = ({children}) => {
     
     
         async function fetchCurrency() {
+            if (currency) {
+                return currency
+            }
+
             if (country) {
                 let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`
 
@@ -96,6 +119,10 @@ const DataProvider = ({children}) => {
 
 
         async function fetchCurrencyName() {
+            if (currencyName) {
+                return currencyName
+            }
+            
             if (country) {
                 let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`
 
@@ -113,6 +140,10 @@ const DataProvider = ({children}) => {
 
 
         async function fetchExchangeRate() {
+            if (exchangeRate) {
+                return exchangeRate
+            }
+
             if (currency) {
                 let apiKey = "AcoRUsoipr4ezllPB8m9rIXjy27p4OH8OKCYfESt"
                 let queryURL = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&currencies=${currency}&base_currency=GBP`
@@ -132,8 +163,9 @@ const DataProvider = ({children}) => {
     
         async function fetchLanguage() {     
             if (country) {
-                let languageThreeDigit
-    
+                if (language) {
+                    return language
+                }
     
                 let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=languages`
     
@@ -142,15 +174,21 @@ const DataProvider = ({children}) => {
                 });
     
                 let data = await response.json();
-                languageThreeDigit = Object.keys(data.languages)[0].toLowerCase();
-                // console.log(data)
-                return languageList[languageThreeDigit]
+                let languageCode = Object.keys(data.languages)[0].toLowerCase();
+                if (languageCode.length === 2){
+                    return languageCode
+                }
+                return languageList[languageCode]
             }
         }
 
 
         async function fetchLanguageName() {     
             if (country) {
+                if (languageName) {
+                    return languageName
+                }
+    
                 let languageThreeDigit
     
     
@@ -167,7 +205,11 @@ const DataProvider = ({children}) => {
             }
         }
 
-        async function fetchPhoto() {
+        async function fetchLocationPhoto() {
+            if (locationPhoto) {
+                return locationPhoto
+            }
+
             if (latitude) {
                 let apiKey = "xQ2jQbQVMvucBH2sNWSM6l9X5oWI2TH89SXXUDMwXMtQx5QPM0eYxFRr"
                 let queryURL = `https://api.pexels.com/v1/search?query=${city}&orientation=landscape&page=1`
@@ -188,14 +230,7 @@ const DataProvider = ({children}) => {
             }
         }
 
-        // const flag = () => {
-        //     console.log("I am flag and I swish in the wind")
-        // }
-        
 
-        if (!city) {
-            setCity(fetchCity())
-        }
         if (!country) {
             fetchCountry().then(c => setCountry(c))
         }
@@ -221,19 +256,17 @@ const DataProvider = ({children}) => {
             fetchLanguageName().then(l => setLanguageName(l))
         }
         if(!locationPhoto) {
-            fetchPhoto().then(p => setLocationPhoto(p))
+            fetchLocationPhoto().then(p => setLocationPhoto(p))
         }
-        // if(!flag) {
-        //     fetchFlag().then(l => setFlag(l))
-        // }
 
 
         // console.log(city,country,language,currency)
-    }, [city, country, longitude, latitude, currency, currencyName, exchangeRate, language, languageName, locationPhoto])
+    }, [country, city, setCity, longitude, latitude, currency, currencyName, exchangeRate, language, languageName, locationPhoto])
 
 
     const props = {
         city,
+        updateCity,
         country,
         longitude,
         latitude,
@@ -243,7 +276,6 @@ const DataProvider = ({children}) => {
         language,
         languageName,
         locationPhoto,
-        // flag,
         
     }
 

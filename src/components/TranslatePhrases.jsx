@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import phraseFixture from '../json/phrases.json'
 
-function TranslatePhrases(props) {
+function TranslatePhrases({props}) {
     const {language} = props;
     let fromLang = "en";
     let toLang = language;

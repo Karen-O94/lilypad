@@ -1,26 +1,20 @@
 import "./Results.css";
-import BackButton from "../components/BackButton";
 import KeyInfo from "../components/KeyInfo";
 import Weather from "../components/Weather";
 import News from "../components/News";
 import Events from "../components/Events";
-import Landscape_placeholder from "../images/landscape_placeholder.jpg";
-import lilypad1 from "../images/lilypad5.jpg";
+import lilypad from "../images/lilypad.jpg";
 import Translate from "../components/Translate";
-import DataProvider from "../components/DataProvider";
 import Currency from "../components/Currency";
 
-function Results(props) {
-
+function Results({props}) {
   const {city, locationPhoto} = props;
 
   const randomPhoto = () => {
     if (locationPhoto) {
-      console.log()
       return locationPhoto[Math.floor(Math.random() * (locationPhoto.length - 0 + 1))]  
     }
-    // console.log()
-    return lilypad1
+    return lilypad
   }
 
   return (
@@ -33,38 +27,31 @@ function Results(props) {
           ></img>
           <div className="hero-text">
             <h1>WELCOME TO {city}!</h1>
-            <BackButton />
           </div>
         </div>
         <div className="body">
           <div className="body-left">
             <div className="key-info">
-              <DataProvider>
-                <KeyInfo />
-              </DataProvider>
+                <KeyInfo props={props}/>
             </div>
             <div className="weather">
-              <DataProvider>
-                <Weather />
-              </DataProvider>
+                <Weather props={props}/>
             </div>
           </div>
           <div className="body-right">
             <div className="news">
-              <News />
+              <News props={props}/>
             </div>
             <div className="events">
-              <Events />
+              <Events props={props}/>
             </div>
           </div>
         </div>
         <div className="body-lower">
           {/* note classname body-lower not currently in use in results.css  */}
-          <Translate />
+          <Translate props={props}/>
         <div className="events">
-          <DataProvider>
-            <Currency />
-          </DataProvider>
+            <Currency props={props}/>
           </div>
       </div>
     </div>
