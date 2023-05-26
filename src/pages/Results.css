@@ -67,6 +67,11 @@
   background-color: white;
 }
 
+.currency {
+  border-radius: 25px;
+  margin: 10px;
+}
+
 .news {
   border-radius: 25px;
 }
