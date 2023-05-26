@@ -1,8 +1,8 @@
 import "./Weather.css";
-import WeatherIcon from "../images/weather_placeholder.png";
+// import WeatherIcon from "../images/weather_placeholder.png";
 import { useEffect, useState } from "react";
 
-function Weather(props) {
+function Weather({props}) {
     const {city, latitude, longitude} = props;
     let city1 = city;
     let lat = latitude;

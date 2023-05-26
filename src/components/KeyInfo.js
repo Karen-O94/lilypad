@@ -6,7 +6,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CurrencyPoundIcon from '@mui/icons-material/CurrencyPound';
 
 
-function KeyInfo(props) {
+function KeyInfo({props}) {
   const {city, country, languageName, currencyName, exchangeRate, currency} = props;
   return (
     <>
