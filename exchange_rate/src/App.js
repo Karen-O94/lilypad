@@ -6,6 +6,7 @@ const App = () => {
   const [currencyCode, setCurrencyCode] = useState('');
   const [amount, setAmount] = useState('');
   const [exchangeRate, setExchangeRate] = useState(null);
+  const [convertedAmount, setConvertedAmount] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleCurrencyChange = (event) => {
@@ -22,29 +23,42 @@ const App = () => {
     event.preventDefault();
 
     if (currencyCode && amount) {
-      const apiKey = 'lYgzjJUuEyZmoq2kMBRaecDpR68UQatT';
-      const url = `https://api.apilayer.com/exchangerates_data/convert?from=GBP&to=${currencyCode}&amount=${amount}`;
+      const apiKey = 'AcoRUsoipr4ezllPB8m9rIXjy27p4OH8OKCYfESt';
+      const url = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&currencies=${currencyCode}&base_currency=GBP`;
 
       axios
-        .get(url, {
-          headers: {
-            apikey: apiKey,
-          },
-        })
+        .get(url)
         .then((response) => {
-          const { success, info, result } = response.data;
+          console.log('API Response:', response.data);
 
-          if (success) {
-            setExchangeRate(result);
-            setErrorMessage('');
+          const { data } = response;
+
+          if (data.error) {
+            setExchangeRate(null);
+            setConvertedAmount(null);
+            setErrorMessage(`Error: ${data.error}`);
+          } else if (data.data) {
+            const exchangeRate = data.data[currencyCode];
+            if (exchangeRate) {
+              setExchangeRate(exchangeRate);
+              const convertedAmount = (amount * exchangeRate).toFixed(2);
+              setConvertedAmount(convertedAmount);
+              setErrorMessage('');
+            } else {
+              setExchangeRate(null);
+              setConvertedAmount(null);
+              setErrorMessage(`Error: Currency code not found`);
+            }
           } else {
             setExchangeRate(null);
-            setErrorMessage(`Error: ${info}`);
+            setConvertedAmount(null);
+            setErrorMessage('Error: Unable to fetch exchange rate');
           }
         })
         .catch((error) => {
           console.error('Error fetching exchange rate:', error);
           setExchangeRate(null);
+          setConvertedAmount(null);
           setErrorMessage('Error: Unable to fetch exchange rate');
         });
     }
@@ -74,12 +88,15 @@ const App = () => {
         </div>
         <button type="submit">Get Exchange Rate</button>
       </form>
-      {exchangeRate !== null && (
-        <p className="exchange-rate">
-          1 GBP = {exchangeRate.toFixed(6)} {currencyCode}
-          <br />
-          {amount} GBP = {(exchangeRate * amount).toFixed(6)} {currencyCode}
-        </p>
+      {exchangeRate !== null && convertedAmount !== null && (
+        <div className="exchange-rate-info">
+          <p className="exchange-rate">
+            1 GBP = {exchangeRate.toFixed(6)} {currencyCode}
+          </p>
+          <p className="converted-amount">
+            {amount} GBP = {convertedAmount} {currencyCode}
+          </p>
+        </div>
       )}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
@@ -87,3 +104,4 @@ const App = () => {
 };
 
 export default App;
+

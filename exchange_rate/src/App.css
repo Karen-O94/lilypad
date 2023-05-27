@@ -40,8 +40,16 @@ button {
   cursor: pointer;
 }
 
-.exchange-rate {
+.exchange-rate-info {
   text-align: center;
+  margin-top: 10px;
+}
+
+.exchange-rate {
+  font-weight: bold;
+}
+
+.converted-amount {
   font-weight: bold;
   margin-top: 10px;
 }
