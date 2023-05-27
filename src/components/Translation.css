@@ -1,4 +1,5 @@
 .translation-container {
+  display:flex;
   border-radius: 25px;
   background-color: #f8f4fb;
   border-style: ridge;
