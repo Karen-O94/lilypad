@@ -24,7 +24,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f8f4fb;
+  background-color: #f8f4fb90;
   border-radius: 25px;
   border-color: #5a815c;
   border-width: 1px;
@@ -66,77 +66,16 @@
 }
 
 .events {
+  flex: 1;
   margin-right: 50px;
+  width: 100%;
 }
 
 .translation {
+  flex: 1;
   margin-left: 5px;
+  width: 100%;
 }
-
-/* .weather {
-  border-radius: 25px;
-  /* margin: 10px; */
-/* background-color: white;
-} */
-*/
-
-/* .news {
-  background-color: white;
-  border-radius: 25;
-  padding: 10px;
-} */
-
-/* .mid-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  background-color: white;
-  border-radius: 25;
-  padding: 10px;
-} */
-
-/* .translation {
-  margin-right: 20px;
-  width: 800px;
-} */
-/* 
-.currency {
-  /* margin-left: 20px; */
-  /* width: 800px;
-  border-radius: 25px;
-  /* margin: 10px; */
-
-/* .currency {
-  width: 100%;
-  margin-left: 0px;
-  margin-bottom: 20px;
-} */
-/* 
-.lower-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: stretch;
-  background-color: white;
-  border-radius: 25;
-  padding: 10px;
-} */
-/* 
-.events {
-  padding: 20px;
-  width: 80%;
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-} */
-/* 
-.translate-phrases {
-  padding: 20px;
-  width: 1000px;
-  width: 100%;
-  margin-left: 20px;
-} */
 
 @media (max-width: 400px) {
   .page-container {

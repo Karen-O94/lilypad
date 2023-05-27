@@ -57,6 +57,7 @@ function Results({ props }) {
           <div className="news">
             <TopNews props={props} />
           </div>
+
           <div className="events-and-translation-section">
             <div className="events">
               <Events city={props.city} />

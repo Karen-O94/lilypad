@@ -1,4 +1,4 @@
-.events {
+.events-container {
   border-radius: 25px;
   background-color: #f8f4fb;
   border-style: ridge;
@@ -6,6 +6,7 @@
   border-width: 1px;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .events-header {
@@ -25,26 +26,6 @@
   border-style: ridge;
   border-color: #5a815c;
   border-width: 1px;
-  padding: 30px;
-  width: 400px;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-
-.event2 {
-  background-color: white;
-  border-radius: 25px;
-  border: 40px;
-  padding: 30px;
-  width: 400px;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-
-.event3 {
-  background-color: white;
-  border-radius: 25px;
-  border: 40px;
   padding: 30px;
   width: 400px;
   flex-wrap: wrap;

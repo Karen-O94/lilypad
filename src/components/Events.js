@@ -74,7 +74,7 @@ function Events({ city }) {
   }, [city]);
 
   return (
-    <div className="events">
+    <div className="events-container">
       <div className="events-header">
         <h3>CHECK OUT A LOCAL EVENT IN {city}:</h3>
       </div>
