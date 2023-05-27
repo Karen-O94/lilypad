@@ -1,17 +1,8 @@
-.weather-component {
+.conversion-container {
   border-radius: 25px;
   padding: 10px;
   border-color: #5a815c;
   border-width: 1px;
   border-style: ridge;
   text-align: center;
-}
-
-.weather-icon {
-  width: 120px;
-  margin: 10px;
-}
-
-.weather-info {
-  font-size: 20;
 }

@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import Results from "./pages/Results";
 
 function App(props) {
-
   // return (
   //   <Routes>
   //     <Route path="/" element={<Home />} />
@@ -12,10 +11,10 @@ function App(props) {
   // );
   return (
     <>
-      <Home props={props}/>
-      <Results props={props}/>
+      {/* <Home props={props}/> */}
+      <Results props={props} />
     </>
-  )
+  );
 }
 
 export default App;

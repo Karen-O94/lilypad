@@ -1,6 +1,9 @@
 .events {
   border-radius: 25px;
   background-color: #f8f4fb;
+  border-style: ridge;
+  border-color: #5a815c;
+  border-width: 1px;
   display: flex;
   flex-direction: column;
 }
@@ -16,10 +19,12 @@
   flex-grow: 1;
 }
 
-.event1 {
+.event {
   background-color: white;
   border-radius: 25px;
-  border: 40px;
+  border-style: ridge;
+  border-color: #5a815c;
+  border-width: 1px;
   padding: 30px;
   width: 400px;
   flex-wrap: wrap;

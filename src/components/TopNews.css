@@ -1,12 +1,15 @@
-.news {
+.topnews-container {
   border-radius: 25px;
-
   background-color: #f8f4fb;
   display: flex;
   flex-direction: column;
+  border-style: ridge;
+  border-color: #5a815c;
+  border-width: 1px;
+  padding: 10px;
 }
 
-.news-header {
+h3 {
   margin-left: 30px;
 }
 
@@ -15,9 +18,10 @@
   flex-direction: row;
   justify-content: space-around;
   flex-grow: 1;
+  list-style-type: none;
 }
 
-.news1 {
+.news-event {
   background-color: white;
   border-radius: 25px;
   border: 40px;
@@ -25,29 +29,14 @@
   width: 400px;
   flex-wrap: wrap;
   margin: 20px;
-}
-
-.news2 {
-  background-color: white;
-  border-radius: 25px;
-  border: 40px;
-  padding: 30px;
-  width: 400px;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-
-.news3 {
-  background-color: white;
-  border-radius: 25px;
-  border: 40px;
-  padding: 30px;
-  width: 400px;
-  flex-wrap: wrap;
-  margin: 20px;
+  border-style: ridge;
+  border-color: #5a815c;
+  border-width: 1px;
 }
 
 img {
   width: 400px;
   border-radius: 25px;
+  margin-bottom: 10px;
+  margin-top: 15px;
 }

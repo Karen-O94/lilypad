@@ -42,7 +42,7 @@ function Events({ city }) {
           };
 
           const formattedDate = date.toLocaleString("en-UK", options);
-          
+
           // format event date into desired format
           setEventName(data._embedded.events[eventIndex].name);
           setEventVenue(
@@ -54,16 +54,15 @@ function Events({ city }) {
           setEventTime(data._embedded.events[eventIndex].dates.start.localTime);
 
           // console.log("i have rendered!");
-
         } else {
           setEventName(
-            `Sorry, we didn't find any events coming soon in ${city}`)
-          setEventDate()
-          setEventImage()
-          setEventLink()
-          setEventVenue()
-          setEventTime()
-
+            `Sorry, we didn't find any events coming soon in ${city}`
+          );
+          setEventDate();
+          setEventImage();
+          setEventLink();
+          setEventVenue();
+          setEventTime();
         }
 
         // console.log(data);
@@ -80,7 +79,7 @@ function Events({ city }) {
         <h3>CHECK OUT A LOCAL EVENT IN {city}:</h3>
       </div>
       <div className="events-body">
-        <div className="event1">
+        <div className="event">
           <div className="event-image">
             {/* <a> */}
             <img src={eventImage} alt="" />
@@ -92,6 +91,9 @@ function Events({ city }) {
           <p>{eventTime}</p>
 
           <Button
+            style={{
+              backgroundColor: "#5A815C",
+            }}
             variant="contained"
             size="small"
             onClick={() => window.open(eventLink, "_blank")}
