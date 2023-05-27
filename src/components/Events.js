@@ -24,7 +24,7 @@ function Events({ city }) {
 
         let data = await response.json();
         // console.log(data);
-        console.log(city);
+        // console.log(city);
 
         if (data._embedded) {
           let eventIndex = Math.floor(

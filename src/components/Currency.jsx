@@ -5,7 +5,7 @@ import CurrencyPoundIcon from '@mui/icons-material/CurrencyPound';
 
 const Currency = ({props}) => {
   const {currency, currencyName, exchangeRate} = props;
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(1);
 
 
   const handleAmountChange = (event) => {
@@ -41,10 +41,10 @@ const Currency = ({props}) => {
             id="amount-input"
             type="text"
             placeholder="Enter amount"
-            value={amount}
             onChange={handleAmountChange}
           />
-          <p>{amount} GBP = {(exchangeRate * amount).toFixed(2)} {currency}</p>
+
+          <p>{amount} GBP = {(exchangeRate??0 * amount).toFixed(2)} {currency}</p>
     </div>
   );
 };

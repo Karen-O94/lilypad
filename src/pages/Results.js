@@ -1,11 +1,11 @@
 import "./Results.css";
 import KeyInfo from "../components/KeyInfo";
 import Weather from "../components/Weather";
-import News from "../components/News";
 import Events from "../components/Events";
 import lilypad from "../images/lilypad.jpg";
 import Translate from "../components/Translate";
 import Currency from "../components/Currency";
+import TopNews from "../components/TopNews";
 
 function Results({props}) {
   const {city, locationPhoto} = props;
@@ -44,7 +44,7 @@ function Results({props}) {
           </div>
           <div className="body-right">
             <div className="news">
-              <News props={props}/>
+              <TopNews props={props}/>
             </div>
             <div className="events">
               <Events city={props.city}/>
