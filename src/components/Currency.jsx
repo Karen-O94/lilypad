@@ -44,7 +44,7 @@ const Currency = ({props}) => {
             onChange={handleAmountChange}
           />
 
-          <p>{amount} GBP = {(exchangeRate??0 * amount).toFixed(2)} {currency}</p>
+          <p>{amount} GBP = {(exchangeRate * amount).toFixed(2)} {currency}</p>
     </div>
   );
 };
