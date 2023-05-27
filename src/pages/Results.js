@@ -6,6 +6,7 @@ import lilypad from "../images/lilypad.jpg";
 import Translate from "../components/Translate";
 import Currency from "../components/Currency";
 import TopNews from "../components/TopNews";
+import Countries from "../components/Countries";
 
 function Results({props}) {
   const {city, locationPhoto} = props;
@@ -34,6 +35,10 @@ function Results({props}) {
             <div className="key-info">
                 <KeyInfo props={props}/>
             </div>
+            <div>
+              <Countries props={props} />
+            </div>
+            <br></br>
             <div className="currency">
                 <Currency props={props}/>
             </div>
@@ -53,7 +58,7 @@ function Results({props}) {
         </div>
         <div className="body-lower">
           {/* note classname body-lower not currently in use in results.css  */}
-          <Translate props={props}/>
+          <Translate props={props} />
       </div>
     </div>
   );
