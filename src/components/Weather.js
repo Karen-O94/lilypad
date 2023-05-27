@@ -38,7 +38,7 @@ function Weather({props}) {
             setIcon(data.current.weather[0].icon);
           }
           catch (error) {
-            alert("There was an error fetching the data", error);
+            alert("There was an error fetching the weather data", error);
           }
 
         }

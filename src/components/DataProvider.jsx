@@ -44,15 +44,22 @@ const DataProvider = ({children}) => {
                 let apiKey = "TPeKHqkG6z2eYd8cYAuj4Q==ChId75RDBpyFpona"
                 let queryURL = `https://api.api-ninjas.com/v1/city?name=${city}`
                 
-                const response = await fetch(queryURL, {
-                    method: 'GET',
-                    headers: {'X-Api-Key': apiKey}
-                });
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET',
+                        headers: {'X-Api-Key': apiKey}
+                    });
+                    
+                    let data = await response.json();
+                    let country = data[0].country; // this API only ever returns one data point -if this ever returned more than one, we only want one
+                    // console.log(country)
+                    console.log(city)
+                    return country
+                }
+                catch (error) {
+                    alert("There was an error fetching your data, please check you've typed the city name correctly", error);
+                  }
                 
-                let data = await response.json();
-                let country = data[0].country; // this API only ever returns one data point -if this ever returned more than one, we only want one
-                // console.log(country)
-                return country
             }
         }
         
@@ -66,15 +73,20 @@ const DataProvider = ({children}) => {
                 let apiKey = "TPeKHqkG6z2eYd8cYAuj4Q==ChId75RDBpyFpona"
                 let queryURL = `https://api.api-ninjas.com/v1/city?name=${city}`
                 
-                const response = await fetch(queryURL, {
-                    method: 'GET',
-                    headers: {'X-Api-Key': apiKey}
-                });
-                
-                let data = await response.json();
-                let longitude = data[0].longitude;
-                // console.log(longitude)
-                return longitude
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET',
+                        headers: {'X-Api-Key': apiKey}
+                    });
+                    
+                    let data = await response.json();
+                    let longitude = data[0].longitude;
+                    // console.log(longitude)
+                    return longitude
+                }
+                catch (error) {
+                    alert("There was an error fetching the city data", error);
+                  }                
             }
         }
     
@@ -88,15 +100,20 @@ const DataProvider = ({children}) => {
                 let apiKey = "TPeKHqkG6z2eYd8cYAuj4Q==ChId75RDBpyFpona"
                 let queryURL = `https://api.api-ninjas.com/v1/city?name=${city}`
                 
-                const response = await fetch(queryURL, {
-                    method: 'GET',
-                    headers: {'X-Api-Key': apiKey}
-                });
-                
-                let data = await response.json();
-                let latitude = data[0].latitude;
-                // console.log(latitude)
-                return latitude
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET',
+                        headers: {'X-Api-Key': apiKey}
+                    });
+                    
+                    let data = await response.json();
+                    let latitude = data[0].latitude;
+                    // console.log(latitude)
+                    return latitude
+                }
+                catch (error) {
+                    alert("There was an error fetching the city data", error);
+                  }
             }
         }
 
@@ -110,14 +127,19 @@ const DataProvider = ({children}) => {
                 let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
                 let queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=${apiKey}`
                 
-                const response = await fetch(queryURL, {
-                    method: "GET",
-                });
-                
-                let data = await response.json();
-                let timezone = data.timezone;
-                // console.log(timezone)
-                return timezone
+                try {
+                    const response = await fetch(queryURL, {
+                        method: "GET",
+                    });
+                    
+                    let data = await response.json();
+                    let timezone = data.timezone;
+                    // console.log(timezone)
+                    return timezone
+                }
+                catch (error) {
+                    alert("There was an error fetching the time data", error);
+                  }
             }
         }
     
@@ -130,13 +152,18 @@ const DataProvider = ({children}) => {
             if (country) {
                 let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`
 
-                const response = await fetch(queryURL, {
-                    method: 'GET'
-                });
-        
-                let data = await response.json();
-                // console.log(data)
-                return Object.keys(data.currencies)[0];
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET'
+                    });
+            
+                    let data = await response.json();
+                    // console.log(data)
+                    return Object.keys(data.currencies)[0];
+                }
+                catch (error) {
+                    alert("There was an error fetching the currency data", error);
+                  }
             }
         }
 
@@ -149,15 +176,20 @@ const DataProvider = ({children}) => {
             if (country) {
                 let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`
 
-                const response = await fetch(queryURL, {
-                    method: 'GET'
-                });
-        
-                let data = await response.json();
-                // console.log(data)
-                let currencyKey = Object.keys(data.currencies)[0];
-
-                return data.currencies[currencyKey].name;
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET'
+                    });
+            
+                    let data = await response.json();
+                    // console.log(data)
+                    let currencyKey = Object.keys(data.currencies)[0];
+    
+                    return data.currencies[currencyKey].name;
+                }
+                catch (error) {
+                    alert("There was an error fetching the currency data", error);
+                  }
             }
         }
 
@@ -171,15 +203,20 @@ const DataProvider = ({children}) => {
                 let apiKey = "AcoRUsoipr4ezllPB8m9rIXjy27p4OH8OKCYfESt"
                 let queryURL = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&currencies=${currency}&base_currency=GBP`
                 
-                const response = await fetch(queryURL, {
-                    method: 'GET',
-                });
-        
-                let data = await response.json();
-                // console.log(data)
-                let exchangeRate = data.data[currency];
-
-                return exchangeRate
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET',
+                    });
+            
+                    let data = await response.json();
+                    // console.log(data)
+                    let exchangeRate = data.data[currency];
+    
+                    return exchangeRate
+                }
+                catch (error) {
+                    alert("There was an error fetching the currency data", error);
+                  }
             }
         }
     
@@ -192,16 +229,21 @@ const DataProvider = ({children}) => {
     
                 let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=languages`
     
-                const response = await fetch(queryURL, {
-                    method: 'GET'
-                });
-    
-                let data = await response.json();
-                let languageCode = Object.keys(data.languages)[0].toLowerCase();
-                if (languageCode.length === 2){
-                    return languageCode
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET'
+                    });
+        
+                    let data = await response.json();
+                    let languageCode = Object.keys(data.languages)[0].toLowerCase();
+                    if (languageCode.length === 2){
+                        return languageCode
+                    }
+                    return languageList[languageCode]
                 }
-                return languageList[languageCode]
+                catch (error) {
+                    alert("There was an error fetching the language data", error);
+                  }
             }
         }
 
@@ -217,14 +259,19 @@ const DataProvider = ({children}) => {
     
                 let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=languages`
     
-                const response = await fetch(queryURL, {
-                    method: 'GET'
-                });
-    
-                let data = await response.json();
-                languageThreeDigit = Object.keys(data.languages)[0].toLowerCase();
-                // console.log(deata)
-                return data.languages[languageThreeDigit]
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET'
+                    });
+        
+                    let data = await response.json();
+                    languageThreeDigit = Object.keys(data.languages)[0].toLowerCase();
+                    // console.log(deata)
+                    return data.languages[languageThreeDigit]
+                }
+                catch (error) {
+                    alert("There was an error fetching the language data", error);
+                  }
             }
         }
 
@@ -237,19 +284,24 @@ const DataProvider = ({children}) => {
                 let apiKey = "xQ2jQbQVMvucBH2sNWSM6l9X5oWI2TH89SXXUDMwXMtQx5QPM0eYxFRr"
                 let queryURL = `https://api.pexels.com/v1/search?query=${city}&orientation=landscape&page=1`
                 
-                const response = await fetch(queryURL, {
-                    method: 'GET',
-                    headers: {'Authorization': apiKey}
-                });
-                
-                let data = await response.json();
-                let photos = []
-                data.photos.forEach((photo) => {
-                    photos.push(photo.src.original)
-                })
-                // let photo = data.photos[0].src.original;
-                // console.log(photos)
-                return photos
+                try {
+                    const response = await fetch(queryURL, {
+                        method: 'GET',
+                        headers: {'Authorization': apiKey}
+                    });
+                    
+                    let data = await response.json();
+                    let photos = []
+                    data.photos.forEach((photo) => {
+                        photos.push(photo.src.original)
+                    })
+                    // let photo = data.photos[0].src.original;
+                    // console.log(photos)
+                    return photos
+                }
+                catch (error) {
+                    alert("There was an error fetching the photo", error);
+                  }
             }
         }
 

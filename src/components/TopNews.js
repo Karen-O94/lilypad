@@ -7,7 +7,7 @@ function TopNews({props}) {
     useEffect(() => {
       if (city) {
       const fetchData = async () => {
-          const apiKey = "f36795f9abc460d7b535bfe9ab2b93f5";
+          const apiKey = "af328d16bbec8f2d48d639eff030f120";
           const queryURL = `https://gnews.io/api/v4/top-headlines?q=${city}&max=3&lang=en&image=required&token=${apiKey}`;
 
           try {
@@ -18,7 +18,7 @@ function TopNews({props}) {
             const data = await response.json();
             setHeadlines(data.articles);
           } catch (error) {
-            alert("There was an error fetching the data", error);
+            alert("There was an error fetching the news data", error);
           }
         }
         fetchData();
