@@ -1,0 +1,33 @@
+.phrase-div {
+  margin: 20px;
+
+
+}
+
+.phrase-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  
+}
+
+.phrase-table th,
+.phrase-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  
+}
+
+.phrase-table th {
+  font-weight: bold;
+}
+
+.phrase-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+
+}
+
+.phrase-table tbody tr:hover {
+  background-color: #e6e6e6;
+}
+

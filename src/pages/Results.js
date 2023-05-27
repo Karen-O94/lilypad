@@ -9,6 +9,7 @@ import TopNews from "../components/TopNews";
 import CountryInfo from "../components/CountryInfo";
 import SearchBar from "../components/SearchBar";
 import Translation from "../components/Translation";
+import TranslatePhrases from "../components/TranslatePhrases";
 
 function Results({ props }) {
   const { city, locationPhoto } = props;
@@ -64,6 +65,11 @@ function Results({ props }) {
             </div>
             <div className="translation">
               <Translation props={props} />
+            </div>
+          </div>
+          <div className="lower-body-centre">
+            <div className="translate-phrases">
+              <TranslatePhrases props={props} />
             </div>
           </div>
         </div>
