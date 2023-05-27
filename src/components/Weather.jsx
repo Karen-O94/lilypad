@@ -33,7 +33,7 @@ function Weather({ props }) {
           setHumidity(data.current.humidity + "%");
           setIcon(data.current.weather[0].icon);
         } catch (error) {
-          alert("There was an error fetching the data", error);
+          alert("There was an error fetching the weather data", error);
         }
       }
       getWeatherData();
@@ -43,7 +43,7 @@ function Weather({ props }) {
 
   return (
     <div className="weather-component">
-      <h4> Local Weather: </h4>
+      <h6 id="city"><b>{city1} </b></h6>
       <img
         className="weather-icon"
         src={`http://openweathermap.org/img/w/${icon}.png`}

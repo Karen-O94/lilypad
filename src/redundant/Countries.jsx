@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "./CountryInfo.css";
-// importing react hooks and css file
 
-const CountryInfo = ({ props }) => {
-  const { country, timezone } = props;
+const Countries = ({ props }) => {
+  // const [countries, setCountries] = useState([])
+  const {country,timezone} = props;
   const [countryName, setCountryName] = useState();
   const [flag, setFlag] = useState();
   const [coatOfArms, setCoatOfArms] = useState();
   const [population, setPopulation] = useState();
   const [region, setRegion] = useState();
   const [capital, setCapital] = useState();
-  // useState to update the component with information coming from the API
 
   useEffect(() => {
 
@@ -44,20 +42,24 @@ const CountryInfo = ({ props }) => {
   });
 
   return (
-    <div>
-      <p>
-        {flag} {countryName}
-      </p>
-      <br></br>
-      <img src={coatOfArms} alt={countryName} width={"7%"} />
-      <br></br>
+      <div>
+        <h3>{countryName} {flag}</h3>
+        <img src = {coatOfArms} alt ={countryName} width={"7%"}/>
+        <p>  
+          Capital: {capital}
+        </p>   
+        <p>
+          Population: {population}
+        </p>
+        <p>
+          Region: {region}
+        </p>
+ 
+      </div>
+  )
 
-      <p>Capital: {capital}</p>
-      <p>Population: {population}</p>
-      <p>Region: {region}</p>
-    </div>
-  );
-  // return information to component
 };
 
-export default CountryInfo;
+    
+
+export default Countries;
