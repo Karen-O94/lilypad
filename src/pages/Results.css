@@ -26,39 +26,27 @@
   color: white;
 }
 
-.body {
+.upper-body {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   padding-top: 50px;
+  margin-bottom: 20px;
 }
 
-.body-left {
+.upper-body-left {
   background-color: #f8f4fb;
   border-radius: 25px;
   margin-right: 30px;
-  padding: 20px;
+  width: 100%;
+  padding: 15px;
+  max-width: 10%;
 }
 
-.key-info {
-  padding: 20px;
-}
-
-.body-right {
+.upper-body-right {
   border-radius: 25px;
   width: 100%;
-}
-
-.news {
-  background-color: white;
-  border-radius: 25;
-  padding: 10px;
-}
-
-.events {
-  background-color: white;
-  border-radius: 25;
-  padding: 10px;
+  height: 100%;
 }
 
 .weather {
@@ -67,33 +55,120 @@
   background-color: white;
 }
 
-.currency {
-  border-radius: 25px;
-  margin: 10px;
+.news {
+  background-color: white;
+  border-radius: 25;
+  padding: 10px;
 }
 
-.news {
-  border-radius: 25px;
+.mid-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  background-color: white;
+  border-radius: 25;
+  padding: 10px;
+}
+
+.translation {
+  margin-right: 20px;
+  width: 800px;
+}
+
+.currency {
+  margin-left: 20px;
+  width: 800px;
+}
+
+.lower-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  background-color: white;
+  border-radius: 25;
+  padding: 10px;
 }
 
 .events {
-  border-radius: 25px;
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
-table {
-  border:1px solid #b3adad;
-  border-collapse:collapse;
-  padding:5px;
+.translate-phrases {
+  padding: 20px;
+  width: 1000px;
+  width: 100%;
+  margin-left: 20px;
 }
-table th {
-  border:1px solid #b3adad;
-  padding:5px;
-  background: #f0f0f0;
-  color: #313030;
-}
-table td {
-  border:1px solid #b3adad;
-  padding:5px;
-  background: #ffffff;
-  color: #313030;
+
+@media (max-width: 400px) {
+  .page-container {
+    width: 550px;
+  }
+  .hero-image {
+    max-height: 250px;
+  }
+  .upper-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .upper-body-left {
+    justify-content: space-between;
+    margin-right: 0;
+    display: flex;
+    padding: 0px;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .mid-body {
+    flex-direction: column;
+  }
+
+  .translation {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  /* .currency {
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 20px;
+  } */
+
+  .currency {
+    border-radius: 25px;
+    margin: 10px;
+  }
+  
+
+  .lower-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0px;
+  }
+
+  .events {
+    padding: 0px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+
+  .translate-phrases {
+    padding: 0px;
+    width: 100%;
+    margin-left: 0px;
+  }
 }

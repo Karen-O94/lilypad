@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 function TopNews({props}) {
   // creates function to fetch news headlines from API
   const [headlines, setHeadlines] = useState([]); //uses state to manage the fetched headlines
-  const { city } = props;
+  const {city} = props;
   let newsCity = city;
   const apiKey = "f36795f9abc460d7b535bfe9ab2b93f5";
   const queryURL = `https://gnews.io/api/v4/top-headlines?q=${newsCity}&max=3&lang=en&image=required&token=${apiKey}`;

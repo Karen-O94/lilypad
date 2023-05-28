@@ -116,7 +116,7 @@ const DataProvider = ({children}) => {
                 
                 let data = await response.json();
                 let timezone = data.timezone;
-                console.log(timezone)
+                //console.log(timezone)
                 return timezone
             }
         }

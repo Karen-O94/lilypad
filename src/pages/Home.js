@@ -1,4 +1,4 @@
-import './Home.css'; 
+//import './Home.css'; 
 import TitleBanner from "../components/TitleBanner";
 import SearchBar from "../components/SearchBar";
 import React from 'react';

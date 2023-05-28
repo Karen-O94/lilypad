@@ -9,9 +9,9 @@ function SearchBar(props) {
 
   return (
     <>
-      <input autoFocus onBlur={(e) => setCityInput(e.currentTarget.value)} placeholder="Where do you want to go?"></input>
+      <input data-testid="city-input" autoFocus onBlur={(e) => setCityInput(e.currentTarget.value)} placeholder="Where do you want to go?"></input>
 
-      <button onClick={() => searchActions()}>Search</button>
+      <button data-testid="city-btn" onClick={() => searchActions()}>Search</button>
     </>
   );
 }

@@ -2,11 +2,12 @@ import "./Events.css";
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 
-function Events() {
-  let city = "berlin";
+function Events({props}) {
+  const {city} = props
+  let city2 = city
 
   const [eventName, setEventName] = useState(
-    `looks a little quiet in ${city}, no events found`
+    `looks a little quiet in ${city2}, no events found`
   );
   const [eventVenue, setEventVenue] = useState(" ");
   const [eventDate, setEventDate] = useState(" ");
@@ -20,7 +21,7 @@ function Events() {
       const apiURL = "https://app.ticketmaster.com/discovery/v2/";
 
       const response = await fetch(
-        apiURL + `events.json?city=${city}&apikey=${apiKey}`
+        apiURL + `events.json?city=${city2}&apikey=${apiKey}`
       );
 
       var data = await response.json();
@@ -53,7 +54,7 @@ function Events() {
     }
 
     TicketMasterAPI();
-  }, []);
+  });
 
   return (
     <div className="events">

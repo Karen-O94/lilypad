@@ -7,7 +7,7 @@ import TranslatePhrases from "./TranslatePhrases";
 import Translation from "./Translation";
 
 function Translate({props}) {
-  console.log(props)
+  //console.log(props)
   return (
     <div className="translate-container">
       <div className="translate-phrases">
