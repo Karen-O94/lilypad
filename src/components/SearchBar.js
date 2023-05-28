@@ -8,6 +8,7 @@ function SearchBar(props) {
   const [cityInput, setCityInput] = useState();
 
   const searchActions = () => {
+    console.log("button pushed");
     props.updateCity(cityInput.toUpperCase());
   };
 

@@ -36,7 +36,6 @@
 .upper-body {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
   padding-top: 50px;
   margin-bottom: 20px;
 }
@@ -51,6 +50,9 @@
   width: 100%;
   padding: 15px;
   max-width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .upper-body-right {
@@ -63,6 +65,7 @@
   margin-top: 20px;
   display: flex;
   flex-direction: row;
+  margin-top: 50px;
 }
 
 .events {
@@ -89,7 +92,7 @@
   border-color: #5a815c;
   border-width: 1px;
 }
-
+/* 
 @media (max-width: 400px) {
   .page-container {
     width: 550px;
@@ -141,5 +144,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-}
+  } */
