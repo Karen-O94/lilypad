@@ -82,5 +82,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 * [Witt Kegel](https://github.com/WittK95)
 
 ## Links to other resources
-* [Team 2 Project Report](https://docs.google.com/document/d/19OYA3i-i2gSblfsnoITfIiUzMzYZ5RmaSBvMOmNLzao/edit?usp=sharing)
+* [Team 2 Project Report](https://drive.google.com/file/d/19VYeL3iv8mL_WG_aXEsIYMRWqE1dDJwD/view?usp=drive_link)
 * [Team 2 Project Log](https://docs.google.com/spreadsheets/d/1gkZwv35KH3mfGGNlMJk5ytGsKKcVO0tA/edit?usp=sharing&ouid=111438519884210394918&rtpof=true&sd=true)
