@@ -32,7 +32,7 @@ OpenWeatherMap API, TicketMaster API, News API, FreeCurrency API & Pexels Photo 
 ### Self-Hosting APIs Using Docker
 Due to the 'RestCountries' being depreciated in May 2023 and the Translate API being a custom API, these APIs can only be run locally. Thus in order to use these APIs, you must install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and build the Docker images found in the respective repos. You can find the RestCountries API files [here](https://gitlab.com/restcountries/restcountries) and the LibreTranslate files [here](https://github.com/LibreTranslate/LibreTranslate).
 
-We've created a Makefile that you can use to clone both repositories, build the Docker files and then start the containers. It also contains a command to start the application. To use the Makefile, once you've cloned our repo,`cd` into it and enter `make build` into your terminal. You only need to do this once, unless issues are encountered.
+We've created a Makefile that you can use to clone both repositories, build the Docker files and then start the containers. It also contains a command to start the application. To use the Makefile, once you've cloned our repo, `cd` into it and enter `make build` into your terminal. You only need to do this once, unless issues are encountered.
 
 We've adjusted the build commands for Macs running on Apple M chips and if you have one of these machines, everything should install correctly. 
 
