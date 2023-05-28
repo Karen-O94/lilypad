@@ -2,11 +2,22 @@ import "./KeyInfo.css";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import RecordVoiceOver from "@mui/icons-material/RecordVoiceOver";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import MoneyIcon from "@mui/icons-material/Money";
+import CurrencyPoundIcon from "@mui/icons-material/CurrencyPound";
+// importing css file and mui icons
 
+function KeyInfo({ props }) {
+  const {
+    city,
+    country,
+    timezone,
+    languageName,
+    currencyName,
+    currency,
+    exchangeRate,
+  } = props;
+  //using props to get information from DataProvider
 
-
-function KeyInfo({props}) {
-  const {city, country, timezone, languageName} = props;
   return (
     <>
       <div className="container">
@@ -14,9 +25,12 @@ function KeyInfo({props}) {
           <PinDropIcon />
         </div>
         <div className="text">
-          <p>{city}, {country}</p>
+          <p>
+            {city}, {country}
+          </p>
         </div>
       </div>
+
       <div className="container">
         <div className="icon">
           <RecordVoiceOver />
@@ -25,7 +39,6 @@ function KeyInfo({props}) {
           <p>{languageName}</p>
         </div>
       </div>
-
 
       <div className="container">
         <div className="icon">
@@ -36,10 +49,24 @@ function KeyInfo({props}) {
         </div>
       </div>
 
-    <div>
-      <div>
-      
+      <div className="container">
+        <div className="icon">
+          <MoneyIcon />
+        </div>
+        <div className="text">
+          <p>{currencyName}</p>
+        </div>
       </div>
+
+      <div className="container">
+        <div className="icon">
+          <CurrencyPoundIcon />
+        </div>
+        <div className="text">
+          <p>
+            1 GBP = {exchangeRate} {currency}
+          </p>
+        </div>
       </div>
     </>
   );
