@@ -2,13 +2,11 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { color } from "@mui/system";
 
 function SearchBar(props) {
   const [cityInput, setCityInput] = useState();
 
   const searchActions = () => {
-    console.log("button pushed");
     props.updateCity(cityInput.toUpperCase());
   };
 
@@ -35,7 +33,10 @@ function SearchBar(props) {
           backgroundColor: "#5A815C",
         }}
         variant="contained"
-        onClick={() => searchActions()}
+        onClick={() => {
+          searchActions();
+          props.handleSearchClick();
+        }}
       >
         Search
       </Button>

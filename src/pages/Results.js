@@ -3,16 +3,18 @@ import KeyInfo from "../components/KeyInfo";
 import Weather from "../components/Weather";
 import Events from "../components/Events";
 import lilypad from "../images/lilypad.jpg";
-import Translate from "../components/Translate";
 import Currency from "../components/Currency";
 import TopNews from "../components/TopNews";
 import CountryInfo from "../components/CountryInfo";
 import SearchBar from "../components/SearchBar";
 import Translation from "../components/Translation";
 import TranslatePhrases from "../components/TranslatePhrases";
+import React, { useState, lazy, Suspense } from "react";
 
 function Results({ props }) {
   const { city, locationPhoto } = props;
+  const [welcomeMessage, setWelcomeMessage] = useState(true);
+  const [searchClick, setSearchClick] = useState(false);
 
   const randomPhoto = () => {
     if (locationPhoto) {
@@ -21,6 +23,11 @@ function Results({ props }) {
       ];
     }
     return lilypad;
+  };
+
+  const handleSearchClick = () => {
+    setSearchClick(true);
+    setWelcomeMessage(false);
   };
 
   return (
@@ -32,43 +39,83 @@ function Results({ props }) {
           alt="landscape placeholder"
         ></img>
         <div className="hero-text">
-          <h1>WELCOME TO {city}!</h1>
-          <SearchBar updateCity={props.updateCity} />
+          {welcomeMessage ? (
+            <h1>Where would you like to go?</h1>
+          ) : (
+            <h1>WELCOME TO {city}!</h1>
+          )}
+          <SearchBar
+            updateCity={props.updateCity}
+            handleSearchClick={handleSearchClick}
+          />
         </div>
       </div>
 
       <div className="upper-body">
-        <div className="upper-body-left">
-          <div className="key-info">
+        <div
+          className="upper-body-left"
+          style={{ display: searchClick ? "block" : "none" }}
+        >
+          <div
+            className="key-info"
+            style={{ display: searchClick ? "block" : "none" }}
+          >
             <KeyInfo props={props} />
           </div>
-          <div className="country-info">
+          <div
+            className="country-info"
+            style={{ display: searchClick ? "block" : "none" }}
+          >
             <CountryInfo props={props} />
           </div>
-          <div className="currency">
+          <div
+            className="currency"
+            style={{ display: searchClick ? "block" : "none" }}
+          >
             <Currency props={props} />
           </div>
           <br></br>
-          <div className="weather">
+          <div
+            className="weather"
+            style={{ display: searchClick ? "block" : "none" }}
+          >
             <Weather props={props} />
           </div>
         </div>
 
-        <div className="upper-body-right">
-          <div className="news">
+        <div
+          className="upper-body-right"
+          style={{ display: searchClick ? "block" : "none" }}
+        >
+          <div
+            className="news"
+            style={{ display: searchClick ? "block" : "none" }}
+          >
             <TopNews props={props} />
           </div>
 
-          <div className="events-and-translation-section">
-            <div className="events">
+          <div
+            className="events-and-translation-section"
+            style={{ display: searchClick ? "block" : "none" }}
+          >
+            <div
+              className="events"
+              style={{ display: searchClick ? "block" : "none" }}
+            >
               <Events city={props.city} />
             </div>
-            <div className="translation">
+            <div
+              className="translation"
+              style={{ display: searchClick ? "block" : "none" }}
+            >
               <Translation props={props} />
             </div>
           </div>
           <div className="lower-body-centre">
-            <div className="translate-phrases">
+            <div
+              className="translate-phrases"
+              style={{ display: searchClick ? "block" : "none" }}
+            >
               <TranslatePhrases props={props} />
             </div>
           </div>
