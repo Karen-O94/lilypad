@@ -55,7 +55,7 @@ function Results({ props }) {
         </div>
       </div>
 
-      <div className="upper-body">
+      <div className="body">
         <div
           className="upper-body-left"
           style={{ display: searchClick ? "block" : "none" }}
@@ -98,10 +98,7 @@ function Results({ props }) {
             <TopNews props={props} />
           </div>
 
-          <div
-            className="events-and-translation-section"
-            style={{ display: searchClick ? "block" : "none" }}
-          >
+          <div className="events-and-translation-section">
             <div
               className="events"
               style={{ display: searchClick ? "block" : "none" }}
@@ -115,6 +112,7 @@ function Results({ props }) {
               <Translation props={props} />
             </div>
           </div>
+
           <div className="lower-body-centre">
             <div
               className="translate-phrases"

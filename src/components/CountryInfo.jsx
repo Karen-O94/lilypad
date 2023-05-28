@@ -13,43 +13,37 @@ const CountryInfo = ({ props }) => {
   // useState to update the component with information coming from the API
 
   useEffect(() => {
-
     if (timezone) {
-
       const fetchCountryData = async () => {
         let queryUrl = `http://localhost:5001/v3.1/alpha/${country}`;
 
         try {
-            const response = await fetch(queryUrl);
-            let data = await response.json();
-            setCountryName(data[0].name.official)
-            setFlag(data[0].flag)
-            setCoatOfArms(data[0].coatOfArms.svg)
-            setPopulation(data[0].population)
-            setRegion(data[0].subregion)
-            setCapital(data[0].capital)
+          const response = await fetch(queryUrl);
+          let data = await response.json();
+          setCountryName(data[0].name.official);
+          setFlag(data[0].flag);
+          setCoatOfArms(data[0].coatOfArms.svg);
+          setPopulation(data[0].population);
+          setRegion(data[0].subregion);
+          setCapital(data[0].capital);
 
-            // console.log(data);
-            return data;
+          // console.log(data);
+          return data;
+        } catch (error) {
+          alert("There was an error fetching the countries data", error);
         }
-        catch (error) {
-            alert("There was an error fetching the countries data", error);
-        }
-        
-      }
+      };
       fetchCountryData();
-
     }
-
   });
 
   return (
-    <div>
+    <div className="country-container">
       <p>
         {flag} {countryName}
       </p>
       <br></br>
-      <img src={coatOfArms} alt={countryName} width={"7%"} />
+      <img src={coatOfArms} alt={countryName} />
       <br></br>
 
       <p>Capital: {capital}</p>

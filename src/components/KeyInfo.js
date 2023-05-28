@@ -19,7 +19,7 @@ function KeyInfo({ props }) {
   //using props to get information from DataProvider
 
   return (
-    <>
+    <div className="key-info-container">
       <div className="container">
         <div className="icon">
           <PinDropIcon />
@@ -68,7 +68,7 @@ function KeyInfo({ props }) {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

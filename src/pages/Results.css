@@ -33,7 +33,7 @@
   width: 30%;
 }
 
-.upper-body {
+.body {
   display: flex;
   flex-direction: row;
   padding-top: 50px;
@@ -49,10 +49,11 @@
   margin-right: 30px;
   width: 100%;
   padding: 15px;
-  max-width: 10%;
+  max-width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  text-align: center;
 }
 
 .upper-body-right {
@@ -62,7 +63,7 @@
 }
 
 .events-and-translation-section {
-  margin-top: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   margin-top: 50px;
@@ -71,26 +72,31 @@
 .events {
   flex: 1;
   margin-right: 50px;
-  width: 100%;
+  width: 50%;
 }
 
 .translation {
   flex: 1;
   margin-left: 5px;
-  width: 100%;
+  width: 50%;
 }
 
 .lower-body-centre {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .translate-phrases {
+  padding: 20px;
+  width: 50%;
+  background-color: #f8f4fb;
   margin-top: 50px;
   border-style: ridge;
   border-color: #5a815c;
   border-width: 1px;
+  border-radius: 25px;
 }
 /* 
 @media (max-width: 400px) {

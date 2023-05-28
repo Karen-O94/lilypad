@@ -1,6 +1,7 @@
-img {
-  width: 70%;
+.country-container img {
+  width: 35%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 0px;
 }
