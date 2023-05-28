@@ -23,6 +23,7 @@ function SearchBar(props) {
         autoComplete="off"
       >
         <TextField
+          data-testid="city-input"
           id="outlined-basic"
           variant="outlined"
           autoFocus

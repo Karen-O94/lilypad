@@ -1,6 +1,6 @@
 import { render, screen} from "@testing-library/react";
 import SearchBar from "../components/SearchBar";
-import Results from "../pages/Results";
+//import Results from "../pages/Results";
 import userEvent from "@testing-library/user-event";
 
 //tests input form
