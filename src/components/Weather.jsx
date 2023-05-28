@@ -13,7 +13,7 @@ function Weather({ props }) {
 
   function fromKelvinToCelsius(kelvin) {
     return Math.round((kelvin - 273.15) * 10) / 10;
-    // translates kelvin to celsuis
+    // translates kelvin to celsius
   }
 
   useEffect(() => {

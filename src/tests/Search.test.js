@@ -1,6 +1,5 @@
 import { render, screen} from "@testing-library/react";
 import SearchBar from "../components/SearchBar";
-//import Results from "../pages/Results";
 import userEvent from "@testing-library/user-event";
 
 //tests input form
@@ -8,13 +7,13 @@ describe("input control", () => {
     test("Should get input element by test id", () => {
         render (<SearchBar/>)
     
-        const input = screen.getByTestId("city-input");
+        const input = screen.getByTestId("outlined-basic").querySelector("input");
         expect(input).toBeInTheDocument();
     })
     
     test("add valid city input", () => {
         render (<SearchBar/>)
-        const input = screen.getByTestId("city-input");
+        const input = screen.getByTestId("outlined-basic").querySelector("input");
         userEvent.type(input, "paris");
     
         expect(input).toHaveDisplayValue("paris")
