@@ -9,6 +9,7 @@ LILYPAD is React based travel assistant app that aims to provide frequent travel
 * Material UI (MUI)
 * JSX
 * Node.js
+* Docker
 
 ## APIs
 * [OpenWeatherMap API](https://openweathermap.org/api)
@@ -17,7 +18,8 @@ LILYPAD is React based travel assistant app that aims to provide frequent travel
 * [GNews API](https://gnews.io/)
 * [City API](https://api-ninjas.com/)
 * [Currency](https://freecurrencyapi.com/)
-* Translate
+* [Translate](https://libretranslate.com/)
+* [Pexels Photo API](https://www.pexels.com/api/)
 
 ## Installation
 To install the app on your local computer, you will need to fork this repo.
@@ -25,10 +27,10 @@ To install the app on your local computer, you will need to fork this repo.
 Once the repo is cloned, you will need to run `npm install` or `npm i` in your command line/terminal in order to install all the dependencies to run the application successfully/
 
 ### API Keys
-OpenWeatherMap API, TicketMaster API, News API & FreeCurrency API calls require an API key. The keys are all provided in the 'DataProvider.jsx' file, however please note there is a limit to how many calls are allowed per day. Thus if the maximum call is reached, you will need to wait or get a new API key to make further requests
+OpenWeatherMap API, TicketMaster API, News API, FreeCurrency API & Pexels Photo API calls require an API key. The keys are all provided in the 'DataProvider.jsx' file, however please note there is a limit to how many calls are allowed per day. Thus if the maximum call is reached, you will need to wait or get a new API key to make further requests
 
-### Docker Desktop
-Due to the 'RestCountries' being depreciated in May 2023 and the Translate API being a custom API, these APIs can only be run locally. Thus in order to use these APIs, you must install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+### Self-Hosting APIs Using Docker
+Due to the 'RestCountries' being depreciated in May 2023 and the Translate API being a custom API, these APIs can only be run locally. Thus in order to use these APIs, you must install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and build the Docker images found in the respective repos. You can find the RestCountries API files [here](https://gitlab.com/restcountries/restcountries) and the LibreTranslate files [here](https://github.com/LibreTranslate/LibreTranslate).
 
 Once all the dependencies are installed, you will need to run npm run start to initialise the app. A new tab will open in your browser automatically to render the app.
 
