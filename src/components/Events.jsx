@@ -10,6 +10,7 @@ function Events({ city }) {
   const [eventImage, setEventImage] = useState(" ");
   const [eventLink, setEventLink] = useState(" ");
   const [eventTime, setEventTime] = useState("");
+  const [buttonText, setButtonText] = useState();
 
   useEffect(() => {
     if (city) {
@@ -17,51 +18,63 @@ function Events({ city }) {
         let apiKey = "IGAYyVG0ECptEE5ZMHXObHV2YaNqAQxO";
         let apiURL = "https://app.ticketmaster.com/discovery/v2/";
 
-        const response = await fetch(
-          apiURL + `events.json?city=${city}&apikey=${apiKey}`
-        );
-
-        let data = await response.json();
-
-        if (data._embedded) {
-          let eventIndex = Math.floor(
-            Math.random() * data._embedded.events.length
+        try {
+          const response = await fetch(
+            apiURL + `events.json?city=${city}&apikey=${apiKey}`
           );
-          // generates a random number from the number of events, which is used to return a random event from the city
-
-          const date = new Date(
-            data._embedded.events[eventIndex].dates.start.localDate
-          );
-
-          const options = {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          };
-
-          const formattedDate = date.toLocaleString("en-UK", options);
-          // format event date into desired format
-
-          setEventName(data._embedded.events[eventIndex].name);
-          setEventVenue(
-            data._embedded.events[eventIndex]._embedded.venues[0].name
-          );
-          setEventDate(formattedDate);
-          setEventImage(data._embedded.events[eventIndex].images[1].url);
-          setEventLink(data._embedded.events[eventIndex].url);
-          setEventTime(data._embedded.events[eventIndex].dates.start.localTime);
-          // updates details
-        } else {
-          setEventName(
-            `Sorry, we didn't find any events coming soon in ${city}`
-          );
-          setEventDate();
-          setEventImage();
-          setEventLink();
-          setEventVenue();
-          setEventTime();
+  
+          let data = await response.json();
+          // console.log(data);
+          // console.log(city);
+  
+          if (data._embedded) {
+            let eventIndex = Math.floor(
+              Math.random() * data._embedded.events.length
+            );
+  
+            const date = new Date(
+              data._embedded.events[eventIndex].dates.start.localDate
+            );
+  
+            const options = {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            };
+  
+            const formattedDate = date.toLocaleString("en-UK", options);
+            
+            // format event date into desired format
+            setEventName(data._embedded.events[eventIndex].name);
+            setEventVenue(
+              data._embedded.events[eventIndex]._embedded.venues[0].name
+            );
+            setEventDate(formattedDate);
+            setEventImage(data._embedded.events[eventIndex].images[1].url);
+            setEventLink(data._embedded.events[eventIndex].url);
+            setEventTime(data._embedded.events[eventIndex].dates.start.localTime);
+            setButtonText("Buy Tickets")
+  
+            // console.log("i have rendered!");
+  
+          } else {
+            setEventName(
+              `Sorry, we didn't find any events coming soon in ${city}`)
+            setEventDate()
+            setEventImage()
+            setEventLink('https://www.ticketmaster.co.uk/')
+            setEventVenue()
+            setEventTime()
+            setButtonText("Visit Ticketmaster")
+  
+          }
         }
-        // error handling so if no events are found message is given
+        catch (error) {
+          alert("There was an error fetching the event data", error);
+        }
+
+        // console.log(data);
+        // console.log(eventLink);
       }
 
       TicketMasterAPI();
@@ -91,7 +104,7 @@ function Events({ city }) {
             size="small"
             onClick={() => window.open(eventLink, "_blank")}
           >
-            Buy Tickets
+            {buttonText}
           </Button>
         </div>
       </div>

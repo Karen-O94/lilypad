@@ -23,7 +23,7 @@ function TopNews({ props }) {
           const data = await response.json();
           setHeadlines(data.articles);
         } catch (error) {
-          alert("There was an error fetching the data", error);
+          alert("There was an error fetching the news data", error);
         }
       };
       fetchData();
@@ -39,7 +39,7 @@ function TopNews({ props }) {
           <div className="news-event">
             <li key={index}>
               <h4>{article.title}</h4>
-              <a href={article.url} target="_blank">
+              <a href={article.url} target="_blank" rel="noreferrer">
                 <img src={article.image} alt="Article" />
               </a>
               <Button
