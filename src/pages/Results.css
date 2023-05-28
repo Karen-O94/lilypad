@@ -56,6 +56,7 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .upper-body-right {
@@ -88,6 +89,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 
 .translate-phrases {
@@ -99,6 +101,7 @@
   border-color: #5a815c;
   border-width: 1px;
   border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media (max-width: 450px) {
