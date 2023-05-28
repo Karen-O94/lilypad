@@ -46,7 +46,7 @@ function Translation({ props }) {
           type="text"
           onChange={(e) => setPhrase(e.currentTarget.value)}
           placeholder="Enter your text to translate"
-          size={30}
+          // size={30}
           variant="outlined"
         />
       </Box>
