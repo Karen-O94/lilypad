@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Renders full page', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  //Tests whether lilypad heading is rendered on the screen
+  const headingElement = screen.getByText(/LILYPAD/i);
+  expect(headingElement).toBeInTheDocument();
 });
