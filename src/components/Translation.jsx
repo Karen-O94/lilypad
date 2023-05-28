@@ -3,6 +3,7 @@ import "./Translation.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+// imports use state, css stylesheet and mui components
 
 function Translation({ props }) {
   const { language } = props;
@@ -19,15 +20,12 @@ function Translation({ props }) {
     let queryText = encodeURIComponent(phraseToTranslate);
     let queryURL = `http://localhost:5000/translate?source=${fromLang}&target=${toLang}&q=${queryText}`;
 
-    // console.log(queryURL)
-
     const response = await fetch(queryURL, {
       method: "POST",
     });
     let data = await response.json();
     let translatedContent = data.translatedText;
 
-    // console.log(translatedContent);
     return translatedContent;
   };
 

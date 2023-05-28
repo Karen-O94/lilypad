@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import "./TopNews.css";
 import Button from "@mui/material/Button";
+// importing hooks, button component from mui and css stylesheet
 
 function TopNews({ props }) {
   const [headlines, setHeadlines] = useState([]);
   const { city } = props;
+  // receives city props from data provider
 
   useEffect(() => {
     if (city) {
       const fetchData = async () => {
         const apiKey = "62bcea3d0ec6311465039f3e2a53dda2";
         const queryURL = `https://gnews.io/api/v4/top-headlines?q=${city}&max=3&lang=en&image=required&token=${apiKey}`;
+        // max 3 specifies we get an array of 3 news stories
 
         try {
           const response = await fetch(queryURL, {
@@ -26,6 +29,7 @@ function TopNews({ props }) {
       fetchData();
     }
   }, [city]);
+  // API call to gnews API with error handling
 
   return (
     <div className="topnews-container">
@@ -52,6 +56,7 @@ function TopNews({ props }) {
           </div>
         ))}
       </ul>
+      {/* using map to render each news story from the arrray of news stories */}
     </div>
   );
 }

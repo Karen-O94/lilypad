@@ -9,12 +9,14 @@ import CountryInfo from "../components/CountryInfo";
 import SearchBar from "../components/SearchBar";
 import Translation from "../components/Translation";
 import TranslatePhrases from "../components/TranslatePhrases";
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState } from "react";
+// importing the css page, each component and useState hook
 
 function Results({ props }) {
   const { city, locationPhoto } = props;
   const [welcomeMessage, setWelcomeMessage] = useState(true);
   const [searchClick, setSearchClick] = useState(false);
+  // updates welcome message and search click status
 
   const randomPhoto = () => {
     if (locationPhoto) {
@@ -24,11 +26,13 @@ function Results({ props }) {
     }
     return lilypad;
   };
+  // gets random image of city for the banner
 
   const handleSearchClick = () => {
     setSearchClick(true);
     setWelcomeMessage(false);
   };
+  // updates setSearchClick to true, which allows each of the components to render
 
   return (
     <div className="page-container">

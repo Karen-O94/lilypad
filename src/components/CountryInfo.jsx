@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./CountryInfo.css";
+// importing react hooks and css file
 
 const CountryInfo = ({ props }) => {
-  // const [countries, setCountries] = useState([])
   const { country, timezone } = props;
   const [countryName, setCountryName] = useState();
   const [flag, setFlag] = useState();
@@ -10,6 +10,7 @@ const CountryInfo = ({ props }) => {
   const [population, setPopulation] = useState();
   const [region, setRegion] = useState();
   const [capital, setCapital] = useState();
+  // useState to update the component with information coming from the API
 
   useEffect(() => {
     if (timezone) {
@@ -18,16 +19,19 @@ const CountryInfo = ({ props }) => {
 
         const response = await fetch(queryUrl);
         let data = await response.json();
+        // API call
+
         setCountryName(data[0].name.official);
         setFlag(data[0].flag);
         setCoatOfArms(data[0].coatOfArms.svg);
         setPopulation(data[0].population);
         setRegion(data[0].subregion);
         setCapital(data[0].capital);
+        // updating the states with API information
 
-        // console.log(data);
         return data;
       };
+
       fetchCountryData();
     }
   });
@@ -46,6 +50,7 @@ const CountryInfo = ({ props }) => {
       <p>Region: {region}</p>
     </div>
   );
+  // return information to component
 };
 
 export default CountryInfo;

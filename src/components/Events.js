@@ -1,10 +1,9 @@
 import "./Events.css";
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
+// importing react hooks and css file
 
 function Events({ city }) {
-  // const {city} = props;
-
   const [eventName, setEventName] = useState();
   const [eventVenue, setEventVenue] = useState(" ");
   const [eventDate, setEventDate] = useState(" ");
@@ -23,13 +22,12 @@ function Events({ city }) {
         );
 
         let data = await response.json();
-        // console.log(data);
-        // console.log(city);
 
         if (data._embedded) {
           let eventIndex = Math.floor(
             Math.random() * data._embedded.events.length
           );
+          // generates a random number from the number of events, which is used to return a random event from the city
 
           const date = new Date(
             data._embedded.events[eventIndex].dates.start.localDate
@@ -42,8 +40,8 @@ function Events({ city }) {
           };
 
           const formattedDate = date.toLocaleString("en-UK", options);
-
           // format event date into desired format
+
           setEventName(data._embedded.events[eventIndex].name);
           setEventVenue(
             data._embedded.events[eventIndex]._embedded.venues[0].name
@@ -52,8 +50,7 @@ function Events({ city }) {
           setEventImage(data._embedded.events[eventIndex].images[1].url);
           setEventLink(data._embedded.events[eventIndex].url);
           setEventTime(data._embedded.events[eventIndex].dates.start.localTime);
-
-          // console.log("i have rendered!");
+          // updates details
         } else {
           setEventName(
             `Sorry, we didn't find any events coming soon in ${city}`
@@ -64,9 +61,7 @@ function Events({ city }) {
           setEventVenue();
           setEventTime();
         }
-
-        // console.log(data);
-        // console.log(eventLink);
+        // error handling so if no events are found message is given
       }
 
       TicketMasterAPI();
@@ -81,9 +76,7 @@ function Events({ city }) {
       <div className="events-body">
         <div className="event">
           <div className="event-image">
-            {/* <a> */}
             <img src={eventImage} alt="" />
-            {/* </a> */}
           </div>
           <p>{eventName}</p>
           <p>{eventVenue}</p>

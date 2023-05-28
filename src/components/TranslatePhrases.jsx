@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import phraseFixture from "../json/phrases.json";
 import "./TranslatePhrases.css";
+// importing hooks, table from phrases.json and css stylsheet
 
 function TranslatePhrases({ props }) {
   const { language, languageName } = props;
@@ -10,8 +11,6 @@ function TranslatePhrases({ props }) {
   const [translatedText, setTranslatedText] = useState(
     "Your translation will appear here"
   );
-
-  // const {city, latitude, longitude, country,currency, currencyName, languageName, exchangeRate} = props;
 
   //Translates list of phrases when the component loads
   useEffect(() => {
@@ -25,7 +24,6 @@ function TranslatePhrases({ props }) {
         });
         let data = await response.json();
         setTranslatedText(data.translatedText);
-        // console.log(latitude, longitude, country, city, currency, currencyName, languageName, exchangeRate)
       }
       TranslatePhraseRequest();
     }
@@ -39,6 +37,7 @@ function TranslatePhrases({ props }) {
   arr1.forEach((arr1val, i) => {
     newArr.push([arr1val, arr2[i]]);
   });
+  // formatting phrases
 
   return (
     <div className="phrase-div">

@@ -4,6 +4,7 @@ import RecordVoiceOver from "@mui/icons-material/RecordVoiceOver";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import MoneyIcon from "@mui/icons-material/Money";
 import CurrencyPoundIcon from "@mui/icons-material/CurrencyPound";
+// importing css file and mui icons
 
 function KeyInfo({ props }) {
   const {
@@ -15,6 +16,8 @@ function KeyInfo({ props }) {
     currency,
     exchangeRate,
   } = props;
+  //using props to get information from DataProvider
+
   return (
     <>
       <div className="container">

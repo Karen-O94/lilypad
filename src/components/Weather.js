@@ -1,6 +1,6 @@
 import "./Weather.css";
-// import WeatherIcon from "../images/weather_placeholder.png";
 import { useEffect, useState } from "react";
+// imports style sheet and hooks
 
 function Weather({ props }) {
   const { city, latitude, longitude } = props;
@@ -13,6 +13,7 @@ function Weather({ props }) {
 
   function fromKelvinToCelsius(kelvin) {
     return Math.round((kelvin - 273.15) * 10) / 10;
+    // translates kelvin to celsuis
   }
 
   useEffect(() => {
@@ -26,11 +27,7 @@ function Weather({ props }) {
             method: "GET",
           });
 
-          // console.log(city1, lat, long);
-
           let data = await response.json();
-
-          // console.log(data);
 
           setTemperature(fromKelvinToCelsius(data.current.temp) + "°C");
           setHumidity(data.current.humidity + "%");
@@ -42,6 +39,7 @@ function Weather({ props }) {
       getWeatherData();
     }
   });
+  // api request with error handling
 
   return (
     <div className="weather-component">

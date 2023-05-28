@@ -2,6 +2,7 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+// importing useState hook and MUI components
 
 function SearchBar(props) {
   const [cityInput, setCityInput] = useState();
@@ -9,6 +10,7 @@ function SearchBar(props) {
   const searchActions = () => {
     props.updateCity(cityInput.toUpperCase());
   };
+  // city updated with user input
 
   return (
     <>
