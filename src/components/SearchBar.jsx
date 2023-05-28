@@ -8,7 +8,7 @@ function SearchBar(props) {
   const [cityInput, setCityInput] = useState();
 
   const searchActions = () => {
-    props.updateCity((cityInput).trim().toUpperCase());
+    props.updateCity(cityInput.trim().toUpperCase());
   };
   // city updated with user input
 
@@ -29,6 +29,7 @@ function SearchBar(props) {
           autoFocus
           onBlur={(e) => setCityInput(e.currentTarget.value)}
           placeholder="Where next?"
+          style={{ width: 160 }}
         />
       </Box>
       <Button

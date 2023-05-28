@@ -35,3 +35,12 @@
 .event-image {
   border-radius: 25px;
 }
+
+@media (max-width: 450px) {
+  .event {
+    width: 180px;
+  }
+  .event-image img {
+    width: 180px;
+  }
+}
