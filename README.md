@@ -1,13 +1,34 @@
 # LILYPAD
 LILYPAD is React based travel assistant app that aims to provide frequent travelers a quick snapshot of news, events, translations etc for a city they wish to visit
 
-## Screenshots
+## Screenshots/Videos
+
+* [Link to app video demo](https://www.loom.com/embed/ded11921268640bcaf0e7479819b9ea8)
+
+* Lilypad Homepage\
+![Lilypad Homepage](/src/images/lilypad-start.png)
+
+
+* Lilypad Homepage with City\
+![Lilypad Homepage with Destination](/src/images/lilypad-start-destination.png)
+
+
+* Lilypad Results Page\
+![Lilypad Results Page](/src/images/lilypad-results.png)
+
+
+* Lilypad Currency Conversion\
+![Lilypad Currency Conversion](/src/images/lilypad-currency.png)
+
+
+* Lilypad Translation\
+![Lilypad Translation](/src/images/lilypad-translation.png)
+
 
 ## Technologies
 * React
-* React Router
-* Material UI (MUI)
 * JSX
+* Material UI (MUI)
 * Node.js
 * Docker
 
@@ -17,8 +38,8 @@ LILYPAD is React based travel assistant app that aims to provide frequent travel
 * [RestCountries API](https://gitlab.com/restcountries/restcountries)
 * [GNews API](https://gnews.io/)
 * [City API](https://api-ninjas.com/)
-* [Currency](https://freecurrencyapi.com/)
-* [Translate](https://libretranslate.com/)
+* [FreeCurrencyAPI](https://freecurrencyapi.com/)
+* [LibreTranslate](https://libretranslate.com/)
 * [Pexels Photo API](https://www.pexels.com/api/)
 
 ## Installation
@@ -47,7 +68,6 @@ Use `npm start` to run the application in development mode. This should automati
 ## Test
 The following libraries were used for testing:
 * React Testing Library
-* Jest
 
 Use `npm test` to launch the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
@@ -60,3 +80,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 * [Laura Malherbe](https://github.com/L4ur4-M4L)
 * [Siham Dahir](https://github.com/sihamad)
 * [Witt Kegel](https://github.com/WittK95)
+
+## Links to other resources
+* [Team 2 Project Report](https://docs.google.com/document/d/19OYA3i-i2gSblfsnoITfIiUzMzYZ5RmaSBvMOmNLzao/edit?usp=sharing)
+* [Team 2 Project Log](https://docs.google.com/spreadsheets/d/1gkZwv35KH3mfGGNlMJk5ytGsKKcVO0tA/edit?usp=sharing&ouid=111438519884210394918&rtpof=true&sd=true)

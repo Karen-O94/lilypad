@@ -25,7 +25,7 @@ function SearchBar(props) {
         <TextField
           data-testid="outlined-basic"
           id="outlined-basic"
-          variant="outlined"
+          variant="standard"
           autoFocus
           onBlur={(e) => setCityInput(e.currentTarget.value)}
           placeholder="Where next?"

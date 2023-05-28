@@ -11,7 +11,7 @@ function TopNews({ props }) {
   useEffect(() => {
     if (city) {
       const fetchData = async () => {
-        const apiKey = "62bcea3d0ec6311465039f3e2a53dda2";
+        const apiKey = "af328d16bbec8f2d48d639eff030f120";
         const queryURL = `https://gnews.io/api/v4/top-headlines?q=${city}&max=3&lang=en&image=required&token=${apiKey}`;
         // max 3 specifies we get an array of 3 news stories
 
@@ -36,8 +36,8 @@ function TopNews({ props }) {
       <h3>CHECK OUT THE LOCAL NEWS IN {city}</h3>
       <ul className="news-body">
         {headlines.map((article, index) => (
-          <div className="news-event">
-            <li key={index}>
+          <div key={`${article.title}-${index}`} className="news-event">
+            <li >
               <h4>{article.title}</h4>
               <a href={article.url} target="_blank" rel="noreferrer">
                 <img src={article.image} alt="Article" />
