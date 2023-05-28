@@ -1,17 +1,21 @@
 .phrase-div {
   margin: 20px;
+  height: 300px;
+  overflow-y: auto; 
 }
 
 .phrase-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  display: table;
 }
 
 .phrase-table th,
 .phrase-table td {
   padding: 8px;
   border: 1px solid #ddd;
+  display: table-cell;
 }
 
 .phrase-table th {
