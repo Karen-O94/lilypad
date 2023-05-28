@@ -1,44 +1,43 @@
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement } from "react";
 import { useEffect, useState } from "react";
-import languageList from '../json/languagecodetable.json'
+import languageList from "../json/languagecodetable.json";
 
-const DataProvider = ({children}) => {
-    const [city, setCity] = useState();
-    const [country, setCountry] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-    const [latitude, setLatitude] = useState(null);
-    const [timezone, setTimezone] = useState(null);
-    const [currency, setCurrency] = useState(null);
-    const [currencyName, setCurrencyName] = useState(null);
-    const [exchangeRate, setExchangeRate] = useState(null);
-    const [language, setLanguage] = useState(null);
-    const [languageName, setLanguageName] = useState(null);
-    const [locationPhoto, setLocationPhoto] = useState(null);
+const DataProvider = ({ children }) => {
+  const [city, setCity] = useState();
+  const [country, setCountry] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [latitude, setLatitude] = useState(null);
+  const [timezone, setTimezone] = useState(null);
+  const [currency, setCurrency] = useState(null);
+  const [currencyName, setCurrencyName] = useState(null);
+  const [exchangeRate, setExchangeRate] = useState(null);
+  const [language, setLanguage] = useState(null);
+  const [languageName, setLanguageName] = useState(null);
+  const [locationPhoto, setLocationPhoto] = useState(null);
+  // useState to update the component with information coming from the API
 
-
-    const updateCity = (cityName) => {
-        if (city !== cityName) {
-            setCity(cityName)
-            setCountry()
-            setLongitude()
-            setLatitude()
-            setTimezone()
-            setCurrency()
-            setCurrencyName()
-            setExchangeRate()
-            setLanguage()
-            setLanguageName()
-            setLocationPhoto()
-        }
+  const updateCity = (cityName) => {
+    if (city !== cityName) {
+      setCity(cityName);
+      setCountry();
+      setLongitude();
+      setLatitude();
+      setTimezone();
+      setCurrency();
+      setCurrencyName();
+      setExchangeRate();
+      setLanguage();
+      setLanguageName();
+      setLocationPhoto();
     }
-    
+    // updates the values of each
+  };
 
-    useEffect(()=> {
-
-        async function fetchCountry() {
-            if (country) {
-                return country
-            }
+  useEffect(() => {
+    async function fetchCountry() {
+      if (country) {
+        return country;
+      }
 
             if (city) {
                 let apiKey = "TPeKHqkG6z2eYd8cYAuj4Q==ChId75RDBpyFpona"
@@ -118,10 +117,10 @@ const DataProvider = ({children}) => {
         }
 
 
-        async function fetchTimezone() {
-            if (timezone) {
-                return timezone
-            }
+    async function fetchTimezone() {
+      if (timezone) {
+        return timezone;
+      }
 
             if (longitude) {
                 let apiKey = "c38077db5d2d3cc7511c35c5146ebdb4"
@@ -149,8 +148,8 @@ const DataProvider = ({children}) => {
                 return currency
             }
 
-            if (country) {
-                let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`
+      if (country) {
+        let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`;
 
                 try {
                     const response = await fetch(queryURL, {
@@ -168,13 +167,13 @@ const DataProvider = ({children}) => {
         }
 
 
-        async function fetchCurrencyName() {
-            if (currencyName) {
-                return currencyName
-            }
-            
-            if (country) {
-                let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`
+    async function fetchCurrencyName() {
+      if (currencyName) {
+        return currencyName;
+      }
+
+      if (country) {
+        let queryURL = `http://localhost:5001/v3.1/alpha/${country}?fields=currencies`;
 
                 try {
                     const response = await fetch(queryURL, {
@@ -193,11 +192,10 @@ const DataProvider = ({children}) => {
             }
         }
 
-
-        async function fetchExchangeRate() {
-            if (exchangeRate) {
-                return exchangeRate
-            }
+    async function fetchExchangeRate() {
+      if (exchangeRate) {
+        return exchangeRate;
+      }
 
             if (currency) {
                 let apiKey = "AcoRUsoipr4ezllPB8m9rIXjy27p4OH8OKCYfESt"
@@ -275,10 +273,10 @@ const DataProvider = ({children}) => {
             }
         }
 
-        async function fetchLocationPhoto() {
-            if (locationPhoto) {
-                return locationPhoto
-            }
+    async function fetchLocationPhoto() {
+      if (locationPhoto) {
+        return locationPhoto;
+      }
 
             if (latitude) {
                 let apiKey = "xQ2jQbQVMvucBH2sNWSM6l9X5oWI2TH89SXXUDMwXMtQx5QPM0eYxFRr"
@@ -306,64 +304,72 @@ const DataProvider = ({children}) => {
         }
 
 
-        if (!country) {
-            fetchCountry().then(c => setCountry(c))
-        }
-        if (!longitude) {
-            fetchLongitude().then(l => setLongitude(l))
-        }
-        if (!latitude) {
-            fetchLatitude().then(l => setLatitude(l))
-        }
-        if (!timezone) {
-            fetchTimezone().then(t => setTimezone(t))
-        }
-        if (!currency) {
-            fetchCurrency().then(c => setCurrency(c))
-        }
-        if (!currencyName) {
-            fetchCurrencyName().then(c => setCurrencyName(c))
-        }
-        if (!exchangeRate) {
-            fetchExchangeRate().then(e => setExchangeRate(e))
-        }
-        if(!language) {
-            fetchLanguage().then(l => setLanguage(l))
-        }
-        if(!languageName) {
-            fetchLanguageName().then(l => setLanguageName(l))
-        }
-        if(!locationPhoto) {
-            fetchLocationPhoto().then(p => setLocationPhoto(p))
-        }
-
-
-        // console.log(city,country,language,currency)
-    }, [country, city, setCity, longitude, latitude, timezone,currency, currencyName, exchangeRate, language, languageName, locationPhoto])
-
-
-    const props = {
-        city,
-        updateCity,
-        country,
-        longitude,
-        latitude,
-        timezone,
-        currency,
-        currencyName,
-        exchangeRate,
-        language,
-        languageName,
-        locationPhoto,
-        
+    if (!country) {
+      fetchCountry().then((c) => setCountry(c));
     }
+    if (!longitude) {
+      fetchLongitude().then((l) => setLongitude(l));
+    }
+    if (!latitude) {
+      fetchLatitude().then((l) => setLatitude(l));
+    }
+    if (!timezone) {
+      fetchTimezone().then((t) => setTimezone(t));
+    }
+    if (!currency) {
+      fetchCurrency().then((c) => setCurrency(c));
+    }
+    if (!currencyName) {
+      fetchCurrencyName().then((c) => setCurrencyName(c));
+    }
+    if (!exchangeRate) {
+      fetchExchangeRate().then((e) => setExchangeRate(e));
+    }
+    if (!language) {
+      fetchLanguage().then((l) => setLanguage(l));
+    }
+    if (!languageName) {
+      fetchLanguageName().then((l) => setLanguageName(l));
+    }
+    if (!locationPhoto) {
+      fetchLocationPhoto().then((p) => setLocationPhoto(p));
+    }
+  }, [
+    country,
+    city,
+    setCity,
+    longitude,
+    latitude,
+    timezone,
+    currency,
+    currencyName,
+    exchangeRate,
+    language,
+    languageName,
+    locationPhoto,
+  ]);
 
-    return (
-        <div>
-            {Children.map(children, child => {
-                return cloneElement(child, props, null);
-            })}
-        </div>
-    )
-}
+  const props = {
+    city,
+    updateCity,
+    country,
+    longitude,
+    latitude,
+    timezone,
+    currency,
+    currencyName,
+    exchangeRate,
+    language,
+    languageName,
+    locationPhoto,
+  };
+
+  return (
+    <div>
+      {Children.map(children, (child) => {
+        return cloneElement(child, props, null);
+      })}
+    </div>
+  );
+};
 export default DataProvider;
